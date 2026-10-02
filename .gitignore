@@ -1,2 +1,6 @@
-# Logs
-*.log
+# Compiled/Binary files
+*.o
+*.obj
+
+# Editor/IDE files
+*.swp
