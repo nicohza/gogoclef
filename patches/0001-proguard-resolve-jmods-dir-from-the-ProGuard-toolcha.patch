@@ -1,0 +1,50 @@
+From 5296c89a626ba1b887bf6df80558f1ed832e33ed Mon Sep 17 00:00:00 2001
+From: "qwen.ai[bot]" <qwenlm-intl@service.alibaba.com>
+Date: Fri, 2 Oct 2026 17:59:25 +0000
+Subject: [PATCH] proguard: resolve jmods dir from the ProGuard toolchain
+ launcher instead of <java.home>
+
+Some JDK 25 builds (e.g. Temurin 'jdk-25.0.4.101-hotspot') produce a java.home
+system-property path that does not exist, so proguard's libraryjars lookup for
+jmods/java.base.jmod failed with IOException and :fabric:proguard crashed.
+We now compute the absolute jmods directory from the JavaLauncher Gradle will
+actually use to run ProGuard, falling back to the current JVM home.
+---
+ .../baritone/gradle/task/ProguardTask.java    | 21 ++++++++++++++++---
+ 1 file changed, 18 insertions(+), 3 deletions(-)
+
+diff --git a/buildSrc/src/main/java/baritone/gradle/task/ProguardTask.java b/buildSrc/src/main/java/baritone/gradle/task/ProguardTask.java
+index 2d98533..4b1957f 100644
+--- a/buildSrc/src/main/java/baritone/gradle/task/ProguardTask.java
++++ b/buildSrc/src/main/java/baritone/gradle/task/ProguardTask.java
+@@ -130,9 +130,24 @@ public class ProguardTask extends BaritoneGradleTask {
+         template.add(0, "-injars '" + this.artifactPath.toString() + "'");
+         template.add(1, "-outjars '" + this.getTemporaryFile(PROGUARD_EXPORT_PATH) + "'");
+ 
+-        template.add(2, "-libraryjars  <java.home>/jmods/java.base.jmod(!**.jar;!module-info.class)");
+-        template.add(3, "-libraryjars  <java.home>/jmods/java.desktop.jmod(!**.jar;!module-info.class)");
+-        template.add(4, "-libraryjars  <java.home>/jmods/jdk.unsupported.jmod(!**.jar;!module-info.class)");
++        // Resolve the JDK actually used to run ProGuard (the toolchain launcher), not the
++        // JVM that Gradle itself runs on. Some JDK distributions (e.g. Temurin builds with
++        // extended patch numbers like "jdk-25.0.4.101-hotspot") end up with a java.home
++        // system property whose directory does not exist / has no jmods, which previously
++        // made proguard fail with "No such file or directory: .../jmods/java.base.jmod".
++        File pgJavaHome = new File(System.getProperty("java.home"));
++        try {
++            File launcherJava = getJavaLauncherForProguard().getExecutablePath().getAsFile()
++                    .getCanonicalFile();
++            File home = launcherJava.getParentFile().getParentFile();
++            if (new File(home, "jmods").isDirectory()) {
++                pgJavaHome = home;
++            }
++        } catch (Exception ignored) {}
++        String jmodsDir = new File(pgJavaHome, "jmods").getAbsolutePath();
++        template.add(2, "-libraryjars  '" + jmodsDir + "/java.base.jmod(!**.jar;!module-info.class)'");
++        template.add(3, "-libraryjars  '" + jmodsDir + "/java.desktop.jmod(!**.jar;!module-info.class)'");
++        template.add(4, "-libraryjars  '" + jmodsDir + "/jdk.unsupported.jmod(!**.jar;!module-info.class)'");
+ 
+         {
+             final Stream<File> libraries;
+-- 
+2.39.5
+

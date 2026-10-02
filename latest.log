@@ -1,0 +1,346 @@
+[Loading] INITIALIZING
+Starting TLauncher 2.9378 RELEASE
+For more information, visit https://tlauncher.org/
+Startup time: Oct 2, 2026, 7:19:52 PM
+Running folder C:\Users\nexus\AppData\Roaming\.tlauncher\starter
+---
+[Loading] LOADING_CONFIGURATION
+Machine info: -------------------------------------------------------
+Windows 11 10.0, Java 21.0.11, jvm bit x64, 32601 MB RAM
+java path=C:\Users\nexus\AppData\Roaming\.tlauncher\starter\jre_default\jre-21.0.11-windows-x64\bin\javaw.exe
+13th Gen Intel(R) Core(TM) i7-13700KF
+ NVIDIA GeForce RTX 4070, NVIDIA GeForce RTX 4070, 28312 MB
+-------------------------------------------------------
+Selected locale: en, country: SK
+[Loading] LOADING_CONSOLE
+[Downloader2] Loaded configuration: good
+check internet connection https://mps.tlauncher.ru/api/check.bin timeout 1500 ms
+check internet connection https://rescl.tl.vg/check.bin timeout 1500 ms
+check internet connection https://res.tlauncher.ru/check.bin timeout 1500 ms
+check internet connection https://mps.tl.vg/api/check.bin timeout 1500 ms
+check internet connection https://mps.fastrepo.org/api/check.bin timeout 1500 ms
+check internet connection https://res.tl.vg/check.bin timeout 1500 ms
+check internet connection https://piston-meta.mojang.com/v1/packages/d7aae43ea69d80cc3441bee4179abd791f6534cd/1.9.json timeout 1500 ms
+check internet connection https://securelogger.top/check.bin timeout 1500 ms
+check internet connection https://securelogger.net/check.bin timeout 1500 ms
+check internet connection https://ruzone.securelogger.top/check.bin timeout 1500 ms
+[Browser] Loading resources...
+passed rescl.tl.vg within 319 ms
+passed securelogger.net within 320 ms
+passed securelogger.top within 319 ms
+passed res.tl.vg within 319 ms
+passed mps.fastrepo.org within 319 ms
+passed mps.tl.vg within 319 ms
+passed piston-meta.mojang.com within 357 ms
+passed res.tlauncher.ru within 392 ms
+[Browser] Cleaning up after loading:
+Starting garbage collector: 94 / 280 MB
+Garbage collector completed: 32 / 117 MB
+skip request to server https://repo.fastrepo.org/
+passed ruzone.securelogger.top within 431 ms
+passed mps.tlauncher.ru within 436 ms
+do head request -> https://repo.tl.vg/update/downloads/configs_v1/pages/index_en.html RequestMetadata(lastModified=Thu, 01 Oct 2026 19:45:02 GMT, eTag=null, sha1=6f57b233cc9fbec91950b5f747c081579037e0d9, lastAccessAt=1790959030756) local file C:\Users\nexus\AppData\Roaming\.tlauncher\cache\https_repo.tl.vg\update\downloads\configs_v1\pages\index_en.html
+do get request https://repo.tl.vg/update/downloads/configs_v1/pages/index_en.html, saved to C:\Users\nexus\AppData\Roaming\.tlauncher\cache\https_repo.tl.vg\update\downloads\configs_v1\pages\index_en.html
+[Browser] Running in JavaFX Thread
+[Browser] Preparing JavaFX...
+[Loading] LOADING_MANAGERS
+[LocalVersionList] Base directory: C:\Users\nexus\AppData\Roaming\.minecraft
+[ProfileManager] Refreshing profiles from: C:\Users\nexus\AppData\Roaming\.minecraft\TlauncherProfiles.json
+[AdvertisingStatusObserver]  started to get ad information
+[AdvertisingStatusObserver]  finished to get add information
+skip request to server https://repo.fastrepo.org/
+profiles is saved successfully
+skip request to server https://repo.fastrepo.org/
+[Loading] LOADING_WINDOW
+do head request -> https://repo.tl.vg/update/downloads/libraries/org/tlauncher/authlib/libraries-1.7.json RequestMetadata(lastModified=Wed, 08 Jul 2026 08:56:06 GMT, eTag=W/6a4e10a6-5e7bd, sha1=36cce2333cc35ae49703c4646407fd88a0a2c40b, lastAccessAt=1790961583978) local file C:\Users\nexus\AppData\Roaming\.tlauncher\cache\https_repo.tl.vg\update\downloads\libraries\org\tlauncher\authlib\libraries-1.7.json
+[Browser] Initializing...
+[Swing] Favicons loaded: 256px, 128px, 96px, 64px, 48px, 32px, 24px, 16px
+do head request -> https://repo.tl.vg/update/downloads/configs/inner_servers-1.3.json RequestMetadata(lastModified=Thu, 01 Oct 2026 19:44:01 GMT, eTag=W/6abeb801-16e2, sha1=3a4a4831f14515be7c44052636936c8e4665f9a4, lastAccessAt=1790961584499) local file C:\Users\nexus\AppData\Roaming\.tlauncher\cache\https_repo.tl.vg\update\downloads\configs\inner_servers-1.3.json
+[Loading] PREPARING_MAINPANE
+[JFXStartPageLoader]  start load page: file:///C:/Users/nexus/AppData/Roaming/.tlauncher/cache/https_repo.tl.vg/update/downloads/configs_v1/pages/index_en.html
+[Downloader2] Loaded configuration: good
+[JFXStartPageLoader]  succeeded load page: file:///C:/Users/nexus/AppData/Roaming/.tlauncher/cache/https_repo.tl.vg/update/downloads/configs_v1/pages/index_en.html during 0
+[Browser@269126742] Loaded successfully: "file:///C:/Users/nexus/AppData/Roaming/.tlauncher/cache/https_repo.tl.vg/update/downloads/configs_v1/pages/index_en.html"
+[Browser] add listens into server_choose
+[Browser] finished listens into server_choose
+[BrowserSimplePanel]	 constructor
+[BrowserSimplePanel]	 constructor
+[Loading] POSTINIT_GUI
+[Frame] Packing main frame...
+[Frame] Resizing main pane...
+Visibility set.
+[Loading] REFRESHING_INFO
+[VersionManager] Refreshing versions remotely...
+skip request to server https://repo.fastrepo.org/
+Started! (2611 ms.)
+[Loading] SUCCESS
+[TLauncher] starter can be closed
+[TLauncher] show tlauncher!!!
+remove appender: console
+do head request -> https://repo.tl.vg/update/downloads/versions/new5/additional_assets-1.1.json RequestMetadata(lastModified=Mon, 22 Dec 2025 19:39:29 GMT, eTag=W/69499e71-2fb63, sha1=ce6a8f0ee2eda2df06f02778dc16fddb71bb30e3, lastAccessAt=1790961584515) local file C:\Users\nexus\AppData\Roaming\.tlauncher\cache\https_repo.tl.vg\update\downloads\versions\new5\additional_assets-1.1.json
+Searching for IPC: \\?\pipe\discord-ipc-0
+discrord setting status problem: java.io.FileNotFoundException: \\?\pipe\discord-ipc-0 (The system cannot find the file specified)
+skip request to server https://repo.fastrepo.org/
+skip request to server https://repo.fastrepo.org/
+do head request -> https://repo.tl.vg/update/downloads/versions/new5/skin/versions/version_manifest.json RequestMetadata(lastModified=Wed, 20 May 2026 10:24:19 GMT, eTag=W/6a0d8bd3-326c, sha1=12caa9c02a4cdb7b9fba9b916a8c13157330be7e, lastAccessAt=1790961584037) local file C:\Users\nexus\AppData\Roaming\.tlauncher\cache\https_repo.tl.vg\update\downloads\versions\new5\skin\versions\version_manifest.json
+[SkinVersionList] Got in 40 ms
+do head request -> https://repo.tl.vg/update/downloads/versions/new5/version_manifest.json RequestMetadata(lastModified=Wed, 23 Sep 2026 16:53:03 GMT, eTag=W/6ab403ef-c56e, sha1=0f4041a80ff9f972d4db123c400193525e86a19f, lastAccessAt=1790961584013) local file C:\Users\nexus\AppData\Roaming\.tlauncher\cache\https_repo.tl.vg\update\downloads\versions\new5\version_manifest.json
+[ExtraVersionList] Got in 71 ms
+do head request -> https://launchermeta.mojang.com/mc/game/version_manifest.json RequestMetadata(lastModified=Tue, 29 Sep 2026 13:58:45 GMT, eTag=0x8DF1E31C7806C07, sha1=0f29d5f4f8a89924fddfa0dfe194f49450068101, lastAccessAt=1790961584340) local file C:\Users\nexus\AppData\Roaming\.tlauncher\cache\https_launchermeta.mojang.com\mc\game\version_manifest.json
+[OfficialVersionList] Got in 118 ms
+[Version:fabric-loader-0.18.1-1.21.5] Resolving...
+[Version:fabric-loader-0.18.1-1.21.5] Inherits from 1.21.5
+[Version:fabric-loader-0.18.1-1.21.5] child lib will be replace parent lib  org.ow2.asm:asm:9.6
+[Version:fabric-loader-0.18.1-1.21.8] Resolving...
+[Version:fabric-loader-0.18.1-1.21.8] Inherits from 1.21.8
+[Double running] clear time label
+Success deleted  C:\Users\nexus\AppData\Roaming\.tlauncher\doubleRunningProtection.txt
+do head request -> https://resource.fastrepo.org/file?link=https://piston-meta.mojang.com/v1/packages/403dee3925f64c7138b72a5302130829cb588784/1.21.8.json RequestMetadata(lastModified=Tue, 29 Sep 2026 14:01:17 GMT, eTag=W/6abbc4ad-aac7, sha1=403dee3925f64c7138b72a5302130829cb588784, lastAccessAt=1790961584472) local file C:\Users\nexus\AppData\Roaming\.tlauncher\cache\https_piston-meta.mojang.com\v1\packages\403dee3925f64c7138b72a5302130829cb588784\1.21.8.json
+[Version:fabric-loader-0.18.1-1.21.8] child lib will be replace parent lib  org.ow2.asm:asm:9.6
+[VersionManager] Versions has been refreshed (302 ms)
+skip request to server https://repo.fastrepo.org/
+skip request to server https://repo.fastrepo.org/
+run server on  37842
+do head request -> https://repo.tl.vg/update/lch/additional_hot_servers-1.0.json RequestMetadata(lastModified=Thu, 01 Oct 2026 19:45:02 GMT, eTag=W/6abeb83e-26f8, sha1=3d98657dbc708cecfccec4f8d5b6594b5dc4203b, lastAccessAt=1790959033157) local file C:\Users\nexus\AppData\Roaming\.tlauncher\cache\https_repo.tl.vg\update\lch\additional_hot_servers-1.0.json
+do head request -> https://repo.tl.vg/update/lch/servers/hot_servers-1.0.json RequestMetadata(lastModified=Thu, 01 Oct 2026 19:45:02 GMT, eTag=W/6abeb83e-6bf9, sha1=6bdd46b530da8b54a1daf9409619b06c472393e1, lastAccessAt=1790959033155) local file C:\Users\nexus\AppData\Roaming\.tlauncher\cache\https_repo.tl.vg\update\lch\servers\hot_servers-1.0.json
+[LoginForm] run process:
+AccountComboBox.validte pre game launch username Account{skinType=TLAUNCHER, displayName=Nexuss_, userid=Nexuss_, uuid=fe09e73e899d4b9fbf509199d198348f, username=Nexuss_} FREE
+saved account Account{skinType=TLAUNCHER, displayName=Nexuss_, userid=Nexuss_, uuid=fe09e73e899d4b9fbf509199d198348f, username=Nexuss_}
+profiles is saved successfully
+[LoginForm] Login was OK. Trying to launch now.
+[Launcher] Running under TLauncher 2.9378
+[Launcher] Collecting info...
+before clearLibrary C:\Users\nexus\AppData\Roaming\.minecraft\mods\fabric-api-0.161.0+26.3.jar, C:\Users\nexus\AppData\Roaming\.minecraft\mods\ostinato-mc26.3-unoptimized-fabric-1.20.0.jar, C:\Users\nexus\AppData\Roaming\.minecraft\mods\tenorclef-mc26.3-v0.23.1.jar
+written:  []
+after clearLibrary C:\Users\nexus\AppData\Roaming\.minecraft\mods\fabric-api-0.161.0+26.3.jar, C:\Users\nexus\AppData\Roaming\.minecraft\mods\ostinato-mc26.3-unoptimized-fabric-1.20.0.jar, C:\Users\nexus\AppData\Roaming\.minecraft\mods\tenorclef-mc26.3-v0.23.1.jar
+[Launcher] Force update: false
+[Launcher] Selected version: fabric-loader-0.19.5-26.3
+[Launcher] Selected account: Account{skinType=TLAUNCHER, displayName=Nexuss_, userid=Nexuss_, uuid=fe09e73e899d4b9fbf509199d198348f, username=Nexuss_}
+[Launcher] Version sync info: VersionSyncInfo{id='fabric-loader-0.19.5-26.3',
+local=CompleteVersion{id='fabric-loader-0.19.5-26.3', time=Thu Oct 01 17:06:20 CEST 2026, release=Tue Sep 15 11:23:02 CEST 2026, type=release, class=net.fabricmc.loader.impl.launch.knot.KnotClient, minimumVersion=21, assets='34', source=LOCAL_VERSION_REPO, list=net.minecraft.launcher.updater.LocalVersionList@2c8bc3fa, libraries=[Library{name='org.ow2.asm:asm:9.10.1', rules=null, natives=null, extract=null, packed='null'}, Library{name='org.ow2.asm:asm-analysis:9.10.1', rules=null, natives=null, extract=null, packed='null'}, Library{name='org.ow2.asm:asm-commons:9.10.1', rules=null, natives=null, extract=null, packed='null'}, Library{name='org.ow2.asm:asm-tree:9.10.1', rules=null, natives=null, extract=null, packed='null'}, Library{name='org.ow2.asm:asm-util:9.10.1', rules=null, natives=null, extract=null, packed='null'}, Library{name='net.fabricmc:sponge-mixin:0.17.4+mixin.0.8.7', rules=null, natives=null, extract=null, packed='null'}, Library{name='net.fabricmc:fabric-loader:0.19.5', rules=null, natives=null, extract=null, packed='null'}, Library{name='at.yawk.lz4:lz4-java:1.10.1', rules=null, natives=null, extract=null, packed='null'}, Library{name='ca.weblite:java-objc-bridge:1.1', rules=[Rule{action=ALLOW, os=OSRestriction{name=OSX, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='com.azure:azure-json:1.4.0', rules=null, natives=null, extract=null, packed='null'}, Library{name='com.github.oshi:oshi-core:6.9.0', rules=null, natives=null, extract=null, packed='null'}, Library{name='com.google.code.gson:gson:2.14.0', rules=null, natives=null, extract=null, packed='null'}, Library{name='com.google.guava:failureaccess:1.0.3', rules=null, natives=null, extract=null, packed='null'}, Library{name='com.google.guava:guava:33.6.0-jre', rules=null, natives=null, extract=null, packed='null'}, Library{name='com.ibm.icu:icu4j:78.3', rules=null, natives=null, extract=null, packed='null'}, Library{name='com.microsoft.azure:msal4j:1.24.1', rules=null, natives=null, extract=null, packed='null'}, Library{name='com.mojang:authlib:10.0.77', rules=null, natives=null, extract=null, packed='null'}, Library{name='com.mojang:blocklist:1.0.10', rules=null, natives=null, extract=null, packed='null'}, Library{name='com.mojang:brigadier:1.3.11', rules=null, natives=null, extract=null, packed='null'}, Library{name='com.mojang:datafixerupper:10.0.21', rules=null, natives=null, extract=null, packed='null'}, Library{name='com.mojang:jtracy:1.14.38', rules=null, natives=null, extract=null, packed='null'}, Library{name='com.mojang:jtracy:1.14.38:natives-linux', rules=[Rule{action=ALLOW, os=OSRestriction{name=LINUX, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='com.mojang:jtracy:1.14.38:natives-macos', rules=[Rule{action=ALLOW, os=OSRestriction{name=OSX, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='com.mojang:jtracy:1.14.38:natives-macos-arm64', rules=[Rule{action=ALLOW, os=OSRestriction{name=OSX, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='com.mojang:jtracy:1.14.38:natives-windows', rules=[Rule{action=ALLOW, os=OSRestriction{name=WINDOWS, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='com.mojang:logging:1.7.12', rules=null, natives=null, extract=null, packed='null'}, Library{name='com.mojang:patchy:2.2.10', rules=null, natives=null, extract=null, packed='null'}, Library{name='com.mojang:text2speech:1.19.12', rules=null, natives=null, extract=null, packed='null'}, Library{name='commons-codec:commons-codec:1.22.0', rules=null, natives=null, extract=null, packed='null'}, Library{name='commons-io:commons-io:2.20.0', rules=null, natives=null, extract=null, packed='null'}, Library{name='io.netty:netty-buffer:4.2.16.Final', rules=null, natives=null, extract=null, packed='null'}, Library{name='io.netty:netty-codec-base:4.2.16.Final', rules=null, natives=null, extract=null, packed='null'}, Library{name='io.netty:netty-codec-compression:4.2.16.Final', rules=null, natives=null, extract=null, packed='null'}, Library{name='io.netty:netty-codec-http:4.2.16.Final', rules=null, natives=null, extract=null, packed='null'}, Library{name='io.netty:netty-common:4.2.16.Final', rules=null, natives=null, extract=null, packed='null'}, Library{name='io.netty:netty-handler:4.2.16.Final', rules=null, natives=null, extract=null, packed='null'}, Library{name='io.netty:netty-resolver:4.2.16.Final', rules=null, natives=null, extract=null, packed='null'}, Library{name='io.netty:netty-transport-classes-epoll:4.2.16.Final', rules=null, natives=null, extract=null, packed='null'}, Library{name='io.netty:netty-transport-classes-kqueue:4.2.16.Final', rules=null, natives=null, extract=null, packed='null'}, Library{name='io.netty:netty-transport-native-epoll:4.2.16.Final:linux-aarch_64', rules=[Rule{action=ALLOW, os=OSRestriction{name=LINUX, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='io.netty:netty-transport-native-epoll:4.2.16.Final:linux-x86_64', rules=[Rule{action=ALLOW, os=OSRestriction{name=LINUX, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='io.netty:netty-transport-native-kqueue:4.2.16.Final:osx-aarch_64', rules=[Rule{action=ALLOW, os=OSRestriction{name=OSX, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='io.netty:netty-transport-native-kqueue:4.2.16.Final:osx-x86_64', rules=[Rule{action=ALLOW, os=OSRestriction{name=OSX, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='io.netty:netty-transport-native-unix-common:4.2.16.Final', rules=null, natives=null, extract=null, packed='null'}, Library{name='io.netty:netty-transport:4.2.16.Final', rules=null, natives=null, extract=null, packed='null'}, Library{name='it.unimi.dsi:fastutil:8.5.18', rules=null, natives=null, extract=null, packed='null'}, Library{name='net.java.dev.jna:jna-platform:5.17.0', rules=null, natives=null, extract=null, packed='null'}, Library{name='net.java.dev.jna:jna:5.17.0', rules=null, natives=null, extract=null, packed='null'}, Library{name='net.sf.jopt-simple:jopt-simple:5.0.4', rules=null, natives=null, extract=null, packed='null'}, Library{name='org.apache.commons:commons-compress:1.28.0', rules=null, natives=null, extract=null, packed='null'}, Library{name='org.apache.commons:commons-lang3:3.20.0', rules=null, natives=null, extract=null, packed='null'}, Library{name='org.apache.logging.log4j:log4j-api:2.26.0', rules=null, natives=null, extract=null, packed='null'}, Library{name='org.apache.logging.log4j:log4j-core:2.26.0', rules=null, natives=null, extract=null, packed='null'}, Library{name='org.apache.logging.log4j:log4j-slf4j2-impl:2.26.0', rules=null, natives=null, extract=null, packed='null'}, Library{name='org.jcraft:jorbis:0.0.17', rules=null, natives=null, extract=null, packed='null'}, Library{name='org.joml:joml:1.10.9', rules=null, natives=null, extract=null, packed='null'}, Library{name='org.jspecify:jspecify:1.0.0', rules=null, natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-freetype:3.4.3', rules=null, natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-freetype:3.4.3:natives-linux', rules=[Rule{action=ALLOW, os=OSRestriction{name=LINUX, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-freetype:3.4.3:natives-macos', rules=[Rule{action=ALLOW, os=OSRestriction{name=OSX, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-freetype:3.4.3:natives-macos-arm64', rules=[Rule{action=ALLOW, os=OSRestriction{name=OSX, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-freetype:3.4.3:natives-windows', rules=[Rule{action=ALLOW, os=OSRestriction{name=WINDOWS, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-freetype:3.4.3:natives-windows-arm64', rules=[Rule{action=ALLOW, os=OSRestriction{name=WINDOWS, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-jemalloc:3.4.3', rules=null, natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-jemalloc:3.4.3:natives-linux', rules=[Rule{action=ALLOW, os=OSRestriction{name=LINUX, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-jemalloc:3.4.3:natives-macos', rules=[Rule{action=ALLOW, os=OSRestriction{name=OSX, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-jemalloc:3.4.3:natives-macos-arm64', rules=[Rule{action=ALLOW, os=OSRestriction{name=OSX, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-jemalloc:3.4.3:natives-windows', rules=[Rule{action=ALLOW, os=OSRestriction{name=WINDOWS, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-jemalloc:3.4.3:natives-windows-arm64', rules=[Rule{action=ALLOW, os=OSRestriction{name=WINDOWS, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-openal:3.4.3', rules=null, natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-openal:3.4.3:natives-linux', rules=[Rule{action=ALLOW, os=OSRestriction{name=LINUX, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-openal:3.4.3:natives-macos', rules=[Rule{action=ALLOW, os=OSRestriction{name=OSX, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-openal:3.4.3:natives-macos-arm64', rules=[Rule{action=ALLOW, os=OSRestriction{name=OSX, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-openal:3.4.3:natives-windows', rules=[Rule{action=ALLOW, os=OSRestriction{name=WINDOWS, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-openal:3.4.3:natives-windows-arm64', rules=[Rule{action=ALLOW, os=OSRestriction{name=WINDOWS, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-opengl:3.4.3', rules=null, natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-opengl:3.4.3:natives-linux', rules=[Rule{action=ALLOW, os=OSRestriction{name=LINUX, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-opengl:3.4.3:natives-macos', rules=[Rule{action=ALLOW, os=OSRestriction{name=OSX, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-opengl:3.4.3:natives-macos-arm64', rules=[Rule{action=ALLOW, os=OSRestriction{name=OSX, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-opengl:3.4.3:natives-windows', rules=[Rule{action=ALLOW, os=OSRestriction{name=WINDOWS, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-opengl:3.4.3:natives-windows-arm64', rules=[Rule{action=ALLOW, os=OSRestriction{name=WINDOWS, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-sdl:3.4.3', rules=null, natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-sdl:3.4.3:natives-linux', rules=[Rule{action=ALLOW, os=OSRestriction{name=LINUX, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-sdl:3.4.3:natives-macos', rules=[Rule{action=ALLOW, os=OSRestriction{name=OSX, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-sdl:3.4.3:natives-macos-arm64', rules=[Rule{action=ALLOW, os=OSRestriction{name=OSX, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-sdl:3.4.3:natives-windows', rules=[Rule{action=ALLOW, os=OSRestriction{name=WINDOWS, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-sdl:3.4.3:natives-windows-arm64', rules=[Rule{action=ALLOW, os=OSRestriction{name=WINDOWS, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-shaderc:3.4.3', rules=null, natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-shaderc:3.4.3:natives-linux', rules=[Rule{action=ALLOW, os=OSRestriction{name=LINUX, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-shaderc:3.4.3:natives-macos', rules=[Rule{action=ALLOW, os=OSRestriction{name=OSX, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-shaderc:3.4.3:natives-macos-arm64', rules=[Rule{action=ALLOW, os=OSRestriction{name=OSX, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-shaderc:3.4.3:natives-windows', rules=[Rule{action=ALLOW, os=OSRestriction{name=WINDOWS, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-shaderc:3.4.3:natives-windows-arm64', rules=[Rule{action=ALLOW, os=OSRestriction{name=WINDOWS, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-spvc:3.4.3', rules=null, natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-spvc:3.4.3:natives-linux', rules=[Rule{action=ALLOW, os=OSRestriction{name=LINUX, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-spvc:3.4.3:natives-macos', rules=[Rule{action=ALLOW, os=OSRestriction{name=OSX, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-spvc:3.4.3:natives-macos-arm64', rules=[Rule{action=ALLOW, os=OSRestriction{name=OSX, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-spvc:3.4.3:natives-windows', rules=[Rule{action=ALLOW, os=OSRestriction{name=WINDOWS, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-spvc:3.4.3:natives-windows-arm64', rules=[Rule{action=ALLOW, os=OSRestriction{name=WINDOWS, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-stb:3.4.3', rules=null, natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-stb:3.4.3:natives-linux', rules=[Rule{action=ALLOW, os=OSRestriction{name=LINUX, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-stb:3.4.3:natives-macos', rules=[Rule{action=ALLOW, os=OSRestriction{name=OSX, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-stb:3.4.3:natives-macos-arm64', rules=[Rule{action=ALLOW, os=OSRestriction{name=OSX, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-stb:3.4.3:natives-windows', rules=[Rule{action=ALLOW, os=OSRestriction{name=WINDOWS, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-stb:3.4.3:natives-windows-arm64', rules=[Rule{action=ALLOW, os=OSRestriction{name=WINDOWS, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-vma:3.4.3', rules=null, natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-vma:3.4.3:natives-linux', rules=[Rule{action=ALLOW, os=OSRestriction{name=LINUX, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-vma:3.4.3:natives-macos', rules=[Rule{action=ALLOW, os=OSRestriction{name=OSX, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-vma:3.4.3:natives-macos-arm64', rules=[Rule{action=ALLOW, os=OSRestriction{name=OSX, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-vma:3.4.3:natives-windows', rules=[Rule{action=ALLOW, os=OSRestriction{name=WINDOWS, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-vma:3.4.3:natives-windows-arm64', rules=[Rule{action=ALLOW, os=OSRestriction{name=WINDOWS, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-vulkan:3.4.3', rules=null, natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-vulkan:3.4.3:natives-macos', rules=[Rule{action=ALLOW, os=OSRestriction{name=OSX, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl-vulkan:3.4.3:natives-macos-arm64', rules=[Rule{action=ALLOW, os=OSRestriction{name=OSX, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl:3.4.3', rules=null, natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl:3.4.3:natives-linux', rules=[Rule{action=ALLOW, os=OSRestriction{name=LINUX, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl:3.4.3:natives-macos', rules=[Rule{action=ALLOW, os=OSRestriction{name=OSX, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl:3.4.3:natives-macos-arm64', rules=[Rule{action=ALLOW, os=OSRestriction{name=OSX, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl:3.4.3:natives-windows', rules=[Rule{action=ALLOW, os=OSRestriction{name=WINDOWS, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.lwjgl:lwjgl:3.4.3:natives-windows-arm64', rules=[Rule{action=ALLOW, os=OSRestriction{name=WINDOWS, version='null'}, features=null}], natives=null, extract=null, packed='null'}, Library{name='org.slf4j:slf4j-api:2.0.17', rules=null, natives=null, extract=null, packed='null'}]},
+remote=null, isInstalled=true, hasRemote=false, isUpToDate=true}
+do head request -> https://rescl.tl.vg/b/jvm/java_configuration.json RequestMetadata(lastModified=Thu, 08 Jan 2026 08:29:08 GMT, eTag=52d25e534fd70a88bb655e3b1df6a67d, sha1=0f47bc501bbc5009f34bdedb5a232d2ecce640fa, lastAccessAt=1790959058355) local file C:\Users\nexus\AppData\Roaming\.tlauncher\cache\https_rescl.tlauncher.org\b\jvm\java_configuration.json
+[Launcher] Checking conditions...
+[Launcher] shaderpacks:ComplementaryReimagined_r5.6.1.zip,ComplementaryUnbound_r5.6.1.zip,photon_v1.2a.zip
+[Launcher] resourcepacks:Beautiful Enchanted Books - MC 1.21.X - 7.0.0.zip,Beautiful Enchanted Books - MC 26.1.2 - 8.0.0.zip,Clear Glass 1.2.1.zip,Clear Glass.zip,Mizuno Eating Animation 1.21.4 - 1.21.10.zip
+[Launcher] SUCCESS Collect info completed!
+[Launcher] Comparing assets...
+[AssetsManager] Checking resources...
+[AssetsManager] Reading indexes from file C:\Users\nexus\AppData\Roaming\.minecraft\assets\indexes\34.json
+[AssetsManager] checked resorces in: 68 ms.
+[Launcher] finished comparing assets: 99 ms.
+[VersionManager] Required for version fabric-loader-0.19.5-26.3: []
+used default java runtime
+Minecraft requires java version: 25, java path: C:\Users\nexus\AppData\Roaming\.minecraft\runtime\java-runtime-epsilon\windows\java-runtime-epsilon\bin\javaw.exe
+library will be replaced: com.mojang:patchy:2.2.10 -> org.tlauncher:patchy:2.2.101
+[Launcher] Unpacking natives...
+[Launcher] Constructing process...
+[Launcher] Constructing classpath...
+backup world is active: true
+[Launcher] Getting Minecraft arguments...
+[Launcher] Full command: C:\Users\nexus\AppData\Roaming\.minecraft\runtime\java-runtime-epsilon\windows\java-runtime-epsilon\bin\javaw.exe -Dos.name=Windows 10 -Dos.version=10.0 -Dfml.ignoreInvalidMinecraftCertificates=true -Dfml.ignorePatchDiscrepancies=true -Djava.net.preferIPv4Stack=true -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump -Xss1M -XX:StackShadowPages=32 --enable-native-access=ALL-UNNAMED --add-exports java.base/jdk.internal.misc=ALL-UNNAMED -Djava.library.path=C:\Users\nexus\AppData\Roaming\.minecraft\versions\fabric-loader-0.19.5-26.3\natives/java -Djna.tmpdir=C:\Users\nexus\AppData\Roaming\.minecraft\versions\fabric-loader-0.19.5-26.3\natives/jna -Dorg.lwjgl.system.SharedLibraryExtractPath=C:\Users\nexus\AppData\Roaming\.minecraft\versions\fabric-loader-0.19.5-26.3\natives/lwjgl -Dio.netty.native.workdir=C:\Users\nexus\AppData\Roaming\.minecraft\versions\fabric-loader-0.19.5-26.3\natives/netty -Dminecraft.launcher.brand=minecraft-launcher -Dminecraft.launcher.version=2.3.173 -cp C:\Users\nexus\AppData\Roaming\.minecraft\libraries\org\ow2\asm\asm\9.10.1\asm-9.10.1.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\org\ow2\asm\asm-analysis\9.10.1\asm-analysis-9.10.1.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\org\ow2\asm\asm-commons\9.10.1\asm-commons-9.10.1.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\org\ow2\asm\asm-tree\9.10.1\asm-tree-9.10.1.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\org\ow2\asm\asm-util\9.10.1\asm-util-9.10.1.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\net\fabricmc\sponge-mixin\0.17.4+mixin.0.8.7\sponge-mixin-0.17.4+mixin.0.8.7.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\net\fabricmc\fabric-loader\0.19.5\fabric-loader-0.19.5.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\at\yawk\lz4\lz4-java\1.10.1\lz4-java-1.10.1.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\com\azure\azure-json\1.4.0\azure-json-1.4.0.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\com\github\oshi\oshi-core\6.9.0\oshi-core-6.9.0.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\com\google\code\gson\gson\2.14.0\gson-2.14.0.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\com\google\guava\failureaccess\1.0.3\failureaccess-1.0.3.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\com\google\guava\guava\33.6.0-jre\guava-33.6.0-jre.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\com\ibm\icu\icu4j\78.3\icu4j-78.3.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\com\microsoft\azure\msal4j\1.24.1\msal4j-1.24.1.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\com\mojang\authlib\10.0.77\authlib-10.0.77.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\com\mojang\blocklist\1.0.10\blocklist-1.0.10.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\com\mojang\brigadier\1.3.11\brigadier-1.3.11.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\com\mojang\datafixerupper\10.0.21\datafixerupper-10.0.21.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\com\mojang\jtracy\1.14.38\jtracy-1.14.38.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\com\mojang\jtracy\1.14.38\jtracy-1.14.38-natives-windows.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\com\mojang\logging\1.7.12\logging-1.7.12.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\org\tlauncher\patchy\2.2.101\patchy-2.2.101.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\com\mojang\text2speech\1.19.12\text2speech-1.19.12.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\commons-codec\commons-codec\1.22.0\commons-codec-1.22.0.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\commons-io\commons-io\2.20.0\commons-io-2.20.0.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\io\netty\netty-buffer\4.2.16.Final\netty-buffer-4.2.16.Final.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\io\netty\netty-codec-base\4.2.16.Final\netty-codec-base-4.2.16.Final.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\io\netty\netty-codec-compression\4.2.16.Final\netty-codec-compression-4.2.16.Final.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\io\netty\netty-codec-http\4.2.16.Final\netty-codec-http-4.2.16.Final.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\io\netty\netty-common\4.2.16.Final\netty-common-4.2.16.Final.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\io\netty\netty-handler\4.2.16.Final\netty-handler-4.2.16.Final.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\io\netty\netty-resolver\4.2.16.Final\netty-resolver-4.2.16.Final.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\io\netty\netty-transport-classes-epoll\4.2.16.Final\netty-transport-classes-epoll-4.2.16.Final.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\io\netty\netty-transport-classes-kqueue\4.2.16.Final\netty-transport-classes-kqueue-4.2.16.Final.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\io\netty\netty-transport-native-unix-common\4.2.16.Final\netty-transport-native-unix-common-4.2.16.Final.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\io\netty\netty-transport\4.2.16.Final\netty-transport-4.2.16.Final.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\it\unimi\dsi\fastutil\8.5.18\fastutil-8.5.18.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\net\java\dev\jna\jna-platform\5.17.0\jna-platform-5.17.0.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\net\java\dev\jna\jna\5.17.0\jna-5.17.0.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\net\sf\jopt-simple\jopt-simple\5.0.4\jopt-simple-5.0.4.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\org\apache\commons\commons-compress\1.28.0\commons-compress-1.28.0.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\org\apache\commons\commons-lang3\3.20.0\commons-lang3-3.20.0.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\org\apache\logging\log4j\log4j-api\2.26.0\log4j-api-2.26.0.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\org\apache\logging\log4j\log4j-core\2.26.0\log4j-core-2.26.0.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\org\apache\logging\log4j\log4j-slf4j2-impl\2.26.0\log4j-slf4j2-impl-2.26.0.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\org\jcraft\jorbis\0.0.17\jorbis-0.0.17.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\org\joml\joml\1.10.9\joml-1.10.9.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\org\jspecify\jspecify\1.0.0\jspecify-1.0.0.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\org\lwjgl\lwjgl-freetype\3.4.3\lwjgl-freetype-3.4.3.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\org\lwjgl\lwjgl-freetype\3.4.3\lwjgl-freetype-3.4.3-natives-windows.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\org\lwjgl\lwjgl-freetype\3.4.3\lwjgl-freetype-3.4.3-natives-windows-arm64.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\org\lwjgl\lwjgl-jemalloc\3.4.3\lwjgl-jemalloc-3.4.3.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\org\lwjgl\lwjgl-jemalloc\3.4.3\lwjgl-jemalloc-3.4.3-natives-windows.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\org\lwjgl\lwjgl-jemalloc\3.4.3\lwjgl-jemalloc-3.4.3-natives-windows-arm64.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\org\lwjgl\lwjgl-openal\3.4.3\lwjgl-openal-3.4.3.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\org\lwjgl\lwjgl-openal\3.4.3\lwjgl-openal-3.4.3-natives-windows.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\org\lwjgl\lwjgl-openal\3.4.3\lwjgl-openal-3.4.3-natives-windows-arm64.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\org\lwjgl\lwjgl-opengl\3.4.3\lwjgl-opengl-3.4.3.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\org\lwjgl\lwjgl-opengl\3.4.3\lwjgl-opengl-3.4.3-natives-windows.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\org\lwjgl\lwjgl-opengl\3.4.3\lwjgl-opengl-3.4.3-natives-windows-arm64.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\org\lwjgl\lwjgl-sdl\3.4.3\lwjgl-sdl-3.4.3.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\org\lwjgl\lwjgl-sdl\3.4.3\lwjgl-sdl-3.4.3-natives-windows.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\org\lwjgl\lwjgl-sdl\3.4.3\lwjgl-sdl-3.4.3-natives-windows-arm64.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\org\lwjgl\lwjgl-shaderc\3.4.3\lwjgl-shaderc-3.4.3.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\org\lwjgl\lwjgl-shaderc\3.4.3\lwjgl-shaderc-3.4.3-natives-windows.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\org\lwjgl\lwjgl-shaderc\3.4.3\lwjgl-shaderc-3.4.3-natives-windows-arm64.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\org\lwjgl\lwjgl-spvc\3.4.3\lwjgl-spvc-3.4.3.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\org\lwjgl\lwjgl-spvc\3.4.3\lwjgl-spvc-3.4.3-natives-windows.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\org\lwjgl\lwjgl-spvc\3.4.3\lwjgl-spvc-3.4.3-natives-windows-arm64.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\org\lwjgl\lwjgl-stb\3.4.3\lwjgl-stb-3.4.3.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\org\lwjgl\lwjgl-stb\3.4.3\lwjgl-stb-3.4.3-natives-windows.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\org\lwjgl\lwjgl-stb\3.4.3\lwjgl-stb-3.4.3-natives-windows-arm64.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\org\lwjgl\lwjgl-vma\3.4.3\lwjgl-vma-3.4.3.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\org\lwjgl\lwjgl-vma\3.4.3\lwjgl-vma-3.4.3-natives-windows.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\org\lwjgl\lwjgl-vma\3.4.3\lwjgl-vma-3.4.3-natives-windows-arm64.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\org\lwjgl\lwjgl-vulkan\3.4.3\lwjgl-vulkan-3.4.3.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\org\lwjgl\lwjgl\3.4.3\lwjgl-3.4.3.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\org\lwjgl\lwjgl\3.4.3\lwjgl-3.4.3-natives-windows.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\org\lwjgl\lwjgl\3.4.3\lwjgl-3.4.3-natives-windows-arm64.jar;C:\Users\nexus\AppData\Roaming\.minecraft\libraries\org\slf4j\slf4j-api\2.0.17\slf4j-api-2.0.17.jar;C:\Users\nexus\AppData\Roaming\.minecraft\versions\fabric-loader-0.19.5-26.3\fabric-loader-0.19.5-26.3.jar -DFabricMcEmu= net.minecraft.client.main.Main  -Xms2G -XX:+UseCompactObjectHeaders -XX:+AlwaysPreTouch -XX:+UseStringDeduplication -XX:+UseZGC -Dminecraft.applet.TargetDirectory=C:\Users\nexus\AppData\Roaming\.minecraft -DlibraryDirectory=C:\Users\nexus\AppData\Roaming\.minecraft\libraries -Dcountry=SK -Dlog4j.configurationFile=C:\Users\nexus\AppData\Roaming\.minecraft\assets\log_configs\client-1.21.2.xml -Xmx21732M net.fabricmc.loader.impl.launch.knot.KnotClient --username Nexuss_ --version fabric-loader-0.19.5-26.3 --gameDir C:\Users\nexus\AppData\Roaming\.minecraft --assetsDir C:\Users\nexus\AppData\Roaming\.minecraft\assets --assetIndex 34 --uuid fe09e73e899d4b9fbf509199d198348f --accessToken null --clientId null --xuid null --versionType release --width 3440 --height 1440 --fullscreen
+[Launcher] Launching Minecraft...
+I'm hiding!
+mods after C:\Users\nexus\AppData\Roaming\.minecraft\mods\fabric-api-0.161.0+26.3.jar, C:\Users\nexus\AppData\Roaming\.minecraft\mods\ostinato-mc26.3-unoptimized-fabric-1.20.0.jar, C:\Users\nexus\AppData\Roaming\.minecraft\mods\tenorclef-mc26.3-v0.23.1.jar
+[InnerMinecraftServersImpl]  search changers of the servers
+read servers from servers.dat [Server(name=Lezenie, address=cicinka.aternos.me, ip=cicinka.aternos.me, port=null, hideAddress=false, acceptTextures=0), Server(name=Minecraft Server, address=185.91.116.11:25566, ip=185.91.116.11, port=25566, hideAddress=false, acceptTextures=0), Server(name=Minecraft Server, address=185.91.116.48:25569, ip=185.91.116.48, port=25569, hideAddress=false, acceptTextures=0), Server(name=Minecraft Server, address=185.91.116.48:25582, ip=185.91.116.48, port=25582, hideAddress=false, acceptTextures=0), Server(name=Minecraft Server, address=185.91.116.33:25567, ip=185.91.116.33, port=25567, hideAddress=false, acceptTextures=0), Server(name=Minecraft Server, address=mc16.crew.sk:25567, ip=mc16.crew.sk, port=25567, hideAddress=false, acceptTextures=0), Server(name=Minecraft Server, address=185.91.116.33:25567, ip=185.91.116.33, port=25567, hideAddress=false, acceptTextures=0), Server(name=Minecraft Server, address=185.91.116.33:25567, ip=185.91.116.33, port=25567, hideAddress=false, acceptTextures=0), Server(name=Minecraft Server, address=noobieviki.aternos.me, ip=noobieviki.aternos.me, port=null, hideAddress=false, acceptTextures=0), Server(name=Minecraft Server, address=noobieviki.aternos.me:51148, ip=noobieviki.aternos.me, port=51148, hideAddress=false, acceptTextures=0), Server(name=Minecraft Server, address=kokoci-KvXu.aternos.me, ip=kokoci-KvXu.aternos.me, port=null, hideAddress=false, acceptTextures=0), Server(name=Minecraft Server, address=kokoci-KvXu.aternos.me:31320, ip=kokoci-KvXu.aternos.me, port=31320, hideAddress=false, acceptTextures=0), Server(name=Minecraft Server, address=forktailedflycatcher.aternos.host:14801, ip=forktailedflycatcher.aternos.host, port=14801, hideAddress=false, acceptTextures=0)]
+[InnerMinecraftServersImpl]  prepare inner servers
+save servers to servers.dat
+[Launcher] Game skin type: TLAUNCHER
+[Launcher] Starting Minecraft fabric-loader-0.19.5-26.3...
+[Launcher] Launching in: C:\Users\nexus\AppData\Roaming\.minecraft
+Starting garbage collector: 245 / 318 MB
+Garbage collector completed: 74 / 260 MB
+[Launcher] Processing post-launch actions. Assist launch: true
+===============================================================================================
+[19:19:58] [main/INFO]: Loading Minecraft 26.3 with Fabric Loader 0.19.5
+[19:19:58] [main/INFO]: Mappings not present!
+[19:19:58] [main/INFO]: Loading 52 mods:
+	- altoclef 26.3-0.22.2
+	- baritone 1.20.0
+	   \-- dev_babbaj_nether-pathfinder 1.6
+	- fabric-api 0.161.0+26.3
+	   |-- fabric-advancement-api-v1 1.0.0+38c7a2d55d
+	   |-- fabric-api-base 2.0.6+fcdff87f5d
+	   |-- fabric-api-lookup-api-v1 2.0.24+3434d6d95d
+	   |-- fabric-biome-api-v1 20.0.9+74ed1ea55d
+	   |-- fabric-block-api-v1 3.1.0+0ae6f9115d
+	   |-- fabric-block-getter-api-v2 2.0.9+3434d6d95d
+	   |-- fabric-command-api-v2 3.1.2+fcdff87f5d
+	   |-- fabric-content-registries-v0 15.0.4+74ed1ea55d
+	   |-- fabric-convention-tags-v2 4.10.3+6b5b47fd5d
+	   |-- fabric-crash-report-info-v1 1.0.7+fcdff87f5d
+	   |-- fabric-creative-tab-api-v1 5.0.21+fcdff87f5d
+	   |-- fabric-data-attachment-api-v1 2.2.30+3434d6d95d
+	   |-- fabric-data-generation-api-v1 27.2.4+427eab975d
+	   |-- fabric-debug-api-v1 1.0.4+3434d6d95d
+	   |-- fabric-dimensions-v1 5.1.19+47f74c985d
+	   |-- fabric-entity-events-v1 6.0.4+3434d6d95d
+	   |-- fabric-events-interaction-v0 5.3.6+3434d6d95d
+	   |-- fabric-game-rule-api-v1 4.0.10+3434d6d95d
+	   |-- fabric-item-api-v1 14.7.0+cf6bc2db5d
+	   |-- fabric-key-mapping-api-v1 2.0.8+3434d6d95d
+	   |-- fabric-lifecycle-events-v1 4.1.9+ffef5f675d
+	   |-- fabric-loot-api-v3 4.0.8+4068fd645d
+	   |-- fabric-menu-api-v1 2.0.27+ed66f0a35d
+	   |-- fabric-message-api-v1 7.0.10+3434d6d95d
+	   |-- fabric-model-loading-api-v1 8.0.35+fcdff87f5d
+	   |-- fabric-networking-api-v1 6.3.8+fcdff87f5d
+	   |-- fabric-object-builder-api-v1 24.1.9+3434d6d95d
+	   |-- fabric-particles-v1 5.0.24+3434d6d95d
+	   |-- fabric-permission-api-v1 1.0.8+fcdff87f5d
+	   |-- fabric-recipe-api-v1 10.0.8+fcdff87f5d
+	   |-- fabric-registry-sync-v0 8.0.1+fcdff87f5d
+	   |-- fabric-renderer-api-v1 17.0.15+79385d0b5d
+	   |-- fabric-renderer-indigo 9.1.23+b9d63e335d
+	   |-- fabric-rendering-fluids-v1 6.0.6+3434d6d95d
+	   |-- fabric-rendering-v1 27.0.14+901a437c5d
+	   |-- fabric-resource-conditions-api-v1 6.1.5+3434d6d95d
+	   |-- fabric-resource-loader-v0 3.3.26+4fc5413f5d
+	   |-- fabric-resource-loader-v1 3.0.4+fcdff87f5d
+	   |-- fabric-screen-api-v1 5.2.4+48607d035d
+	   |-- fabric-serialization-api-v1 2.0.7+74ed1ea55d
+	   |-- fabric-sound-api-v1 2.0.7+3434d6d95d
+	   |-- fabric-tag-api-v1 2.1.10+fcdff87f5d
+	   |-- fabric-transfer-api-v1 8.0.25+fcdff87f5d
+	   \-- fabric-transitive-access-wideners-v1 8.1.16+52268a0e5d
+	- fabricloader 0.19.5
+	   \-- mixinextras 0.5.5
+	- java 25
+	- minecraft 26.3
+[19:19:59] [main/INFO]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=file:/C:/Users/nexus/AppData/Roaming/.minecraft/libraries/net/fabricmc/sponge-mixin/0.17.4+mixin.0.8.7/sponge-mixin-0.17.4+mixin.0.8.7.jar Service=Knot/Fabric Env=CLIENT
+[19:20:00] [main/INFO]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[19:20:00] [Datafixer Bootstrap #0/INFO]: 307 Datafixer optimizations took 199 milliseconds
+[19:20:01] [main/ERROR]: Mixin apply for mod altoclef failed altoclef.mixins.json:WorldBlockModifiedMixin from mod altoclef -> net.minecraft.world.level.Level: org.spongepowered.asm.mixin.injection.throwables.InvalidInjectionException Critical injection failure: @Inject annotation on onBlockWasChanged could not find any targets matching 'onBlockChanged' in net/minecraft/world/level/Level. No refMap loaded. [INJECT_PREPARE_LEGACY Applicator Phase -> altoclef.mixins.json:WorldBlockModifiedMixin from mod altoclef -> Prepare Legacy Injections -> handler$zzf000$altoclef$onBlockWasChanged(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/block/state/BlockState;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V -> Parse ->  -> Validate Targets]
+org.spongepowered.asm.mixin.injection.throwables.InvalidInjectionException: Critical injection failure: @Inject annotation on onBlockWasChanged could not find any targets matching 'onBlockChanged' in net/minecraft/world/level/Level. No refMap loaded. [INJECT_PREPARE_LEGACY Applicator Phase -> altoclef.mixins.json:WorldBlockModifiedMixin from mod altoclef -> Prepare Legacy Injections -> handler$zzf000$altoclef$onBlockWasChanged(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/block/state/BlockState;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V -> Parse ->  -> Validate Targets]
+	at org.spongepowered.asm.mixin.injection.selectors.TargetSelectors.validate(TargetSelectors.java:326)
+	at org.spongepowered.asm.mixin.injection.struct.InjectionInfo.readAnnotation(InjectionInfo.java:364)
+	at org.spongepowered.asm.mixin.injection.struct.InjectionInfo.<init>(InjectionInfo.java:340)
+	at org.spongepowered.asm.mixin.injection.struct.InjectionInfo.<init>(InjectionInfo.java:331)
+	at org.spongepowered.asm.mixin.injection.struct.CallbackInjectionInfo.<init>(CallbackInjectionInfo.java:48)
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
+	at org.spongepowered.asm.mixin.injection.struct.InjectionInfo$InjectorEntry.create(InjectionInfo.java:196)
+	at org.spongepowered.asm.mixin.injection.struct.InjectionInfo.parse(InjectionInfo.java:659)
+	at org.spongepowered.asm.mixin.transformer.MixinTargetContext.prepareInjections(MixinTargetContext.java:1386)
+	at org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.prepareInjections(MixinApplicatorStandard.java:811)
+	at org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.lambda$runApplicatorPass$3(MixinApplicatorStandard.java:323)
+	at org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.processMixins(MixinApplicatorStandard.java:381)
+	at org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.runApplicatorPass(MixinApplicatorStandard.java:320)
+	at org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.apply(MixinApplicatorStandard.java:240)
+	at org.spongepowered.asm.mixin.transformer.TargetClassContext.apply(TargetClassContext.java:437)
+	at org.spongepowered.asm.mixin.transformer.TargetClassContext.applyMixins(TargetClassContext.java:418)
+	at org.spongepowered.asm.mixin.transformer.MixinProcessor.applyMixins(MixinProcessor.java:351)
+	at org.spongepowered.asm.mixin.transformer.MixinTransformer.transformClass(MixinTransformer.java:237)
+	at org.spongepowered.asm.mixin.transformer.MixinTransformer.transformClassBytes(MixinTransformer.java:202)
+	at net.fabricmc.loader.impl.launch.knot.KnotClassDelegate.getPostMixinClassByteArray(KnotClassDelegate.java:435)
+	at net.fabricmc.loader.impl.launch.knot.KnotClassDelegate.tryLoadClass(KnotClassDelegate.java:336)
+	at net.fabricmc.loader.impl.launch.knot.KnotClassDelegate.loadClass(KnotClassDelegate.java:231)
+	at net.fabricmc.loader.impl.launch.knot.KnotClassLoader.loadClass(KnotClassLoader.java:119)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:490)
+	at knot//net.minecraft.server.Bootstrap.bootStrap(Bootstrap.java:58)
+	at knot//net.minecraft.client.main.Main.main(Main.java:177)
+	at net.fabricmc.loader.impl.game.minecraft.MinecraftGameProvider.launch(MinecraftGameProvider.java:517)
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:72)
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23)
+
+[19:20:01] [main/ERROR]: Mixin apply for mod altoclef failed altoclef.mixins.json:MixinLocalPlayer from mod altoclef -> net.minecraft.client.player.LocalPlayer: org.spongepowered.asm.mixin.injection.throwables.InvalidInjectionException Critical injection failure: @Inject annotation on getPitch could not find any targets matching 'getXRot' in net/minecraft/client/player/LocalPlayer. No refMap loaded. [INJECT_PREPARE_LEGACY Applicator Phase -> altoclef.mixins.json:MixinLocalPlayer from mod altoclef -> Prepare Legacy Injections -> handler$zzo000$altoclef$getPitch(FLorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V -> Parse ->  -> Validate Targets]
+org.spongepowered.asm.mixin.injection.throwables.InvalidInjectionException: Critical injection failure: @Inject annotation on getPitch could not find any targets matching 'getXRot' in net/minecraft/client/player/LocalPlayer. No refMap loaded. [INJECT_PREPARE_LEGACY Applicator Phase -> altoclef.mixins.json:MixinLocalPlayer from mod altoclef -> Prepare Legacy Injections -> handler$zzo000$altoclef$getPitch(FLorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V -> Parse ->  -> Validate Targets]
+	at org.spongepowered.asm.mixin.injection.selectors.TargetSelectors.validate(TargetSelectors.java:326)
+	at org.spongepowered.asm.mixin.injection.struct.InjectionInfo.readAnnotation(InjectionInfo.java:364)
+	at org.spongepowered.asm.mixin.injection.struct.InjectionInfo.<init>(InjectionInfo.java:340)
+	at org.spongepowered.asm.mixin.injection.struct.InjectionInfo.<init>(InjectionInfo.java:331)
+	at org.spongepowered.asm.mixin.injection.struct.CallbackInjectionInfo.<init>(CallbackInjectionInfo.java:48)
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
+	at org.spongepowered.asm.mixin.injection.struct.InjectionInfo$InjectorEntry.create(InjectionInfo.java:196)
+	at org.spongepowered.asm.mixin.injection.struct.InjectionInfo.parse(InjectionInfo.java:659)
+	at org.spongepowered.asm.mixin.transformer.MixinTargetContext.prepareInjections(MixinTargetContext.java:1386)
+	at org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.prepareInjections(MixinApplicatorStandard.java:811)
+	at org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.lambda$runApplicatorPass$3(MixinApplicatorStandard.java:323)
+	at org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.processMixins(MixinApplicatorStandard.java:381)
+	at org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.runApplicatorPass(MixinApplicatorStandard.java:320)
+	at org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.apply(MixinApplicatorStandard.java:240)
+	at org.spongepowered.asm.mixin.transformer.TargetClassContext.apply(TargetClassContext.java:437)
+	at org.spongepowered.asm.mixin.transformer.TargetClassContext.applyMixins(TargetClassContext.java:418)
+	at org.spongepowered.asm.mixin.transformer.MixinProcessor.applyMixins(MixinProcessor.java:351)
+	at org.spongepowered.asm.mixin.transformer.MixinTransformer.transformClass(MixinTransformer.java:237)
+	at org.spongepowered.asm.mixin.transformer.MixinTransformer.transformClassBytes(MixinTransformer.java:202)
+	at net.fabricmc.loader.impl.launch.knot.KnotClassDelegate.getPostMixinClassByteArray(KnotClassDelegate.java:435)
+	at net.fabricmc.loader.impl.launch.knot.KnotClassDelegate.tryLoadClass(KnotClassDelegate.java:336)
+	at net.fabricmc.loader.impl.launch.knot.KnotClassDelegate.loadClass(KnotClassDelegate.java:231)
+	at net.fabricmc.loader.impl.launch.knot.KnotClassLoader.loadClass(KnotClassLoader.java:119)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:490)
+	at knot//net.minecraft.client.main.Main.main(Main.java:251)
+	at net.fabricmc.loader.impl.game.minecraft.MinecraftGameProvider.launch(MinecraftGameProvider.java:517)
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:72)
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23)
+
+[19:20:01] [main/ERROR]: Minecraft has crashed!
+net.fabricmc.loader.impl.FormattedException: java.lang.RuntimeException: Mixin transformation of net.minecraft.client.player.LocalPlayer failed
+	at net.fabricmc.loader.impl.FormattedException.ofLocalized(FormattedException.java:63)
+	at net.fabricmc.loader.impl.game.minecraft.MinecraftGameProvider.launch(MinecraftGameProvider.java:519)
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:72)
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23)
+Caused by: java.lang.RuntimeException: Mixin transformation of net.minecraft.client.player.LocalPlayer failed
+	at net.fabricmc.loader.impl.launch.knot.KnotClassDelegate.getPostMixinClassByteArray(KnotClassDelegate.java:440)
+	at net.fabricmc.loader.impl.launch.knot.KnotClassDelegate.tryLoadClass(KnotClassDelegate.java:336)
+	at net.fabricmc.loader.impl.launch.knot.KnotClassDelegate.loadClass(KnotClassDelegate.java:231)
+	at net.fabricmc.loader.impl.launch.knot.KnotClassLoader.loadClass(KnotClassLoader.java:119)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:490)
+	at knot//net.minecraft.client.main.Main.main(Main.java:251)
+	at net.fabricmc.loader.impl.game.minecraft.MinecraftGameProvider.launch(MinecraftGameProvider.java:517)
+	... 2 more
+Caused by: org.spongepowered.asm.mixin.transformer.throwables.MixinTransformerError: An unexpected critical error was encountered
+	at org.spongepowered.asm.mixin.transformer.MixinProcessor.applyMixins(MixinProcessor.java:380)
+	at org.spongepowered.asm.mixin.transformer.MixinTransformer.transformClass(MixinTransformer.java:237)
+	at org.spongepowered.asm.mixin.transformer.MixinTransformer.transformClassBytes(MixinTransformer.java:202)
+	at net.fabricmc.loader.impl.launch.knot.KnotClassDelegate.getPostMixinClassByteArray(KnotClassDelegate.java:435)
+	... 8 more
+Caused by: org.spongepowered.asm.mixin.throwables.MixinApplyError: Mixin [altoclef.mixins.json:MixinLocalPlayer from mod altoclef] from phase [DEFAULT] in config [altoclef.mixins.json] FAILED during APPLY
+	at org.spongepowered.asm.mixin.transformer.MixinProcessor.handleMixinError(MixinProcessor.java:685)
+	at org.spongepowered.asm.mixin.transformer.MixinProcessor.handleMixinApplyError(MixinProcessor.java:636)
+	at org.spongepowered.asm.mixin.transformer.MixinProcessor.applyMixins(MixinProcessor.java:367)
+	... 11 more
+Caused by: org.spongepowered.asm.mixin.injection.throwables.InvalidInjectionException: Critical injection failure: @Inject annotation on getPitch could not find any targets matching 'getXRot' in net/minecraft/client/player/LocalPlayer. No refMap loaded. [INJECT_PREPARE_LEGACY Applicator Phase -> altoclef.mixins.json:MixinLocalPlayer from mod altoclef -> Prepare Legacy Injections -> handler$zzo000$altoclef$getPitch(FLorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V -> Parse ->  -> Validate Targets]
+	at org.spongepowered.asm.mixin.injection.selectors.TargetSelectors.validate(TargetSelectors.java:326)
+	at org.spongepowered.asm.mixin.injection.struct.InjectionInfo.readAnnotation(InjectionInfo.java:364)
+	at org.spongepowered.asm.mixin.injection.struct.InjectionInfo.<init>(InjectionInfo.java:340)
+	at org.spongepowered.asm.mixin.injection.struct.InjectionInfo.<init>(InjectionInfo.java:331)
+	at org.spongepowered.asm.mixin.injection.struct.CallbackInjectionInfo.<init>(CallbackInjectionInfo.java:48)
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
+	at org.spongepowered.asm.mixin.injection.struct.InjectionInfo$InjectorEntry.create(InjectionInfo.java:196)
+	at org.spongepowered.asm.mixin.injection.struct.InjectionInfo.parse(InjectionInfo.java:659)
+	at org.spongepowered.asm.mixin.transformer.MixinTargetContext.prepareInjections(MixinTargetContext.java:1386)
+	at org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.prepareInjections(MixinApplicatorStandard.java:811)
+	at org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.lambda$runApplicatorPass$3(MixinApplicatorStandard.java:323)
+	at org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.processMixins(MixinApplicatorStandard.java:381)
+	at org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.runApplicatorPass(MixinApplicatorStandard.java:320)
+	at org.spongepowered.asm.mixin.transformer.MixinApplicatorStandard.apply(MixinApplicatorStandard.java:240)
+	at org.spongepowered.asm.mixin.transformer.TargetClassContext.apply(TargetClassContext.java:437)
+	at org.spongepowered.asm.mixin.transformer.TargetClassContext.applyMixins(TargetClassContext.java:418)
+	at org.spongepowered.asm.mixin.transformer.MixinProcessor.applyMixins(MixinProcessor.java:351)
+	... 11 more
+
+Here I am!
+[VersionManager] Refreshing versions locally...
+[Version:fabric-loader-0.18.1-1.21.5] Resolving...
+[Version:fabric-loader-0.18.1-1.21.5] Inherits from 1.21.5
+[Version:fabric-loader-0.18.1-1.21.5] child lib will be replace parent lib  org.ow2.asm:asm:9.6
+[Version:fabric-loader-0.18.1-1.21.8] Resolving...
+[Version:fabric-loader-0.18.1-1.21.8] Inherits from 1.21.8
+do head request -> https://resource.fastrepo.org/file?link=https://piston-meta.mojang.com/v1/packages/403dee3925f64c7138b72a5302130829cb588784/1.21.8.json RequestMetadata(lastModified=Tue, 29 Sep 2026 14:01:17 GMT, eTag=W/6abbc4ad-aac7, sha1=403dee3925f64c7138b72a5302130829cb588784, lastAccessAt=1790961594961) local file C:\Users\nexus\AppData\Roaming\.tlauncher\cache\https_piston-meta.mojang.com\v1\packages\403dee3925f64c7138b72a5302130829cb588784\1.21.8.json
+[Version:fabric-loader-0.18.1-1.21.8] child lib will be replace parent lib  org.ow2.asm:asm:9.6
+[VersionManager] Versions has been refreshed (67 ms)
+[Launcher] Minecraft closed with exit code: 1
+Starting garbage collector: 86 / 260 MB
+Garbage collector completed: 74 / 257 MB
+[Launcher] Launcher exited.
+flush now
+flush now
+log request:  https://securelogger.net/save/log?clientType=USER_CODE&version=2.9378
+flush now
