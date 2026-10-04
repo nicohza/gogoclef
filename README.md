@@ -12,6 +12,14 @@ the upstream history of this fork.
 > The Minecraft 26.3 port is experimental. Build and startup checks do not establish
 > that every autonomous task works in-game; start with a single-player test world.
 
+## Active development
+
+Development and gameplay validation now target **Minecraft 26.3 with experimental
+kinematic movement**. Use the [kinematic release](#kinematic-release-263), which
+selects `movementBackend baritone` and enables `kinematicTravel`. Tungsten is not
+part of this configuration. Other versions and previous Tungsten releases remain
+historical compatibility information below. The [ender-pearl test report](docs/testing/26.3-kinematic-ender-pearl.md) records the current gameplay blockers.
+
 ## Supported versions
 
 TenorClef always runs on [Ostinato](https://github.com/vexrypt-rgb/Ostinato), so it is only built
