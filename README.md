@@ -57,8 +57,37 @@ run `#set movementBackend tungsten` in chat. Ostinato handles mining and buildin
 and can recover travel when Tungsten cannot finish a route. For an Ostinato-only
 setup, omit Tungsten and select `#set movementBackend baritone`.
 Do not install duplicate TenorClef, Baritone or Tungsten jars.
-The separate experimental kinematic controller is off by default on 26.3;
+The regular jar leaves experimental kinematic travel off on 26.3;
 `-Dtenorclef.kinematic=true` explicitly enables it.
+
+### Kinematic release (26.3)
+
+The separate **`altoclef-26.3-0.22.2-kinematic.jar`** enables experimental kinematic
+travel and selects the Baritone movement backend automatically at startup. No
+launcher flag or manual settings file is needed. Install it **instead of** the
+regular AltoClef/TenorClef jar; both have the same mod ID.
+
+Use the `mods/` contents of `tenorclef-mc26.3-0.22.2-kinematic.zip`:
+
+- `altoclef-26.3-0.22.2-kinematic.jar`
+- `baritone-unoptimized-fabric-ostinato-26.3.jar`
+- `fabric-api-0.161.0+26.3.jar`
+
+Requires Minecraft 26.3, Fabric Loader 0.19.5, and Java 25. Remove duplicate
+AltoClef/TenorClef and Baritone jars. Tungsten is optional and is not used for this
+preset. An explicit `-Dtenorclef.kinematic=false` still disables kinematic travel.
+In-game changes remain possible with `#set movementBackend baritone` and
+`#set kinematicTravel true`; the release preset is reapplied on each launch.
+
+Start a task with `@get blaze_rod 3`; stop it with `@stop`.
+The 4 October 2026 test of the underlying controller was stopped by the user after
+11m 28s at 0/3 rods while approaching a discovered blaze spawner. Execution of the
+kinematic controller was observed, but three-rod completion is **not validated**.
+The historical 1.16.1 benchmarks below do not establish performance on 26.3.
+
+See [release notes and installation](docs/releases/26.3-kinematic.md) and
+[reproducible variant packaging](tools/release/README.md). Downloadable JARs and ZIPs
+belong in GitHub Release assets; they are not committed as source files.
 
 ### Build (26.3)
 
@@ -101,7 +130,7 @@ caches so Minecraft's shutdown watchdog does not report a crash.
 ## Install
 
 1. Download the TenorClef Fabric jar for your exact Minecraft version from this
-   repository's [Releases](https://github.com/vexrypt-rgb/TenorClef/releases).
+   repository's [Releases](https://github.com/nicohza/gogoclef/releases).
 2. Place it in the instance's `mods` directory with Fabric Loader and Fabric API.
 3. Install the matching Ostinato jar when the release notes require it. Do not add a
    second Baritone jar unless the release notes explicitly say to do so.

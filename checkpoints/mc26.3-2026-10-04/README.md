@@ -48,3 +48,10 @@ git add .github/workflows/gradle.yml .github/workflows/release.yml
 git commit -m "Update Minecraft 26.3 build and release workflows"
 git push
 ```
+
+## Separate kinematic variant
+
+A separately packaged full TenorClef jar now provides the experimental kinematic
+startup preset. See [installation and release notes](../../docs/releases/26.3-kinematic.md).
+The original checkpoint archive and its Tungsten instructions remain historical;
+use the new variant's own `mods/` bundle and instructions for kinematic movement.
