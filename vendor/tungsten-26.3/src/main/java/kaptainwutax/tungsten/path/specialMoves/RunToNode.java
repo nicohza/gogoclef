@@ -73,7 +73,7 @@ public class RunToNode {
 					newNode = newNode.parent;
 				}
 			} else if (newNode.agent.horizontalCollision) {
-				while (newNode.agent.horizontalCollision) {
+				while (newNode != parent && newNode.parent != null && newNode.agent.horizontalCollision) {
 					newNode = newNode.parent;
 				}
 				break;

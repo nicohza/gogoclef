@@ -11,13 +11,14 @@ import net.minecraft.client.Options;
 import kaptainwutax.tungsten.agent.TungstenPlayerInput;
 
 import java.util.List;
+import java.util.ArrayList;
 
 public class PathExecutor {
 
-    protected List<Node> path;
-    protected int tick = 0;
+    private List<Node> path;
+    private int tick = 0;
     protected boolean allowedFlying = false;
-    public boolean stop = false;
+    public volatile boolean stop = false;
     public Runnable cb = null;
     public long startTime;
     public List<BlockNode> blockPath = null;
@@ -34,23 +35,22 @@ public class PathExecutor {
 		}
 	}
 
-	public void setPath(List<Node> path) {
+	public synchronized void setPath(List<Node> path) {
 		this.cb = null;
 		this.startTime = System.currentTimeMillis();
 		if (isClient)
 			this.allowedFlying = TungstenMod.mc.player.getAbilities().mayfly;
 	    stop = false;
-    	this.path = path;
+        this.path = path == null ? null : new ArrayList<>(path);
     	this.tick = 0;
     	RenderHelper.renderPathCurrentlyExecuted();
 	}
 	
-	public void addToPath(Node n) {
-		this.path.add(n);
-    	RenderHelper.renderPathCurrentlyExecuted();
+	public synchronized void addToPath(Node n) {
+		addPath(List.of(n));
 	}
 	
-	public void addPath(List<Node> path) {
+	public synchronized void addPath(List<Node> path) {
 		if (stop) {
 			setPath(path);
 			return;
@@ -63,23 +63,34 @@ public class PathExecutor {
     	RenderHelper.renderPathCurrentlyExecuted();
 	}
 	
-	public List<Node> getPath() {
-		return this.path;
+	public synchronized List<Node> getPath() {
+		return this.path == null ? null : List.copyOf(this.path);
 	}
 	
-	public Node getCurrentNode() {
-		if (this.path == null) return null;
+    /** A detached path and its tick, captured under the same executor lock. */
+    public record Snapshot(List<Node> path, int tick) {
+        public boolean isRunning() {
+            return path != null && tick <= path.size();
+        }
+    }
+
+    public synchronized Snapshot getSnapshot() {
+        return new Snapshot(getPath(), tick);
+    }
+
+	public synchronized Node getCurrentNode() {
+		if (this.path == null || this.path.isEmpty()) return null;
 		if (this.tick >= this.path.size()) return this.path.get(this.path.size()-1);
 		return this.path.get(this.tick);
 	}
 	
 
-	public int getCurrentTick() {
+	public synchronized int getCurrentTick() {
 		return this.tick;
 	}
 
 
-	public boolean isRunning() {
+	public synchronized boolean isRunning() {
         return this.path != null && this.tick <= this.path.size();
     }
 
@@ -87,7 +98,8 @@ public class PathExecutor {
     // Server-side tick disabled: requires ServerPlayerEntity.setPlayerInput() (MC 1.21.4+ only)
     // public void tick(ServerPlayerEntity player) { ... }
     
-    public void tick(LocalPlayer player, Options options) {
+    public synchronized void tick(LocalPlayer player, Options options) {
+        if (this.path == null) return;
     	player.getAbilities().mayfly = false;
     	if(TungstenMod.pauseKeyBinding.isDown() || stop) {
     		this.tick = this.path.size();

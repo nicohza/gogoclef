@@ -48,7 +48,9 @@ public class RenderHelper {
 		TungstenModRenderContainer.RUNNING_PATH_RENDERER.clear();
 		TungstenModRenderContainer.RENDERERS.clear();
 		TungstenModRenderContainer.TEST.clear();
-		if (TungstenModDataContainer.EXECUTOR == null || TungstenModDataContainer.EXECUTOR.getPath() == null || !TungstenModDataContainer.EXECUTOR.isRunning()) return;
+		if (TungstenModDataContainer.EXECUTOR == null) return;
+		var snapshot = TungstenModDataContainer.EXECUTOR.getSnapshot();
+		if (!snapshot.isRunning()) return;
 //		Node n = TungstenMod.EXECUTOR.getPath().getLast();
 //		while (n.parent != null) {
 //			TungstenMod.RUNNING_PATH_RENDERER.add(new Line(n.agent.getPos(), n.parent.agent.getPos(), n.color));
@@ -57,10 +59,10 @@ public class RenderHelper {
 //			}
 //			n = n.parent;
 //		}
-		List<Node> path = TungstenModDataContainer.EXECUTOR.getPath();
+		List<Node> path = snapshot.path();
 		
 		for (int i = (path.size()-2); i > 0; i--) {
-			if (TungstenModDataContainer.EXECUTOR.getCurrentTick() > i) continue;
+			if (snapshot.tick() > i) continue;
 			Node n = path.get(i);
 			
 			Node parent = path.get(i+1);

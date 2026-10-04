@@ -55,7 +55,10 @@ public class SwimmingMove {
     		}
 
     		if (newNode.agent.getPos().y < nextBlockNode.getPos(true).y && distance < 4) {
-    			while (newNode.agent.getPos().y < nextBlockNode.getPos(true).y) {
+                int riseTicks = 0;
+                while (newNode.agent.getPos().y < nextBlockNode.getPos(true).y
+                        && riseTicks < 80 && newNode.agent.touchingWater && !newNode.agent.verticalCollision) {
+                    riseTicks++;
                     newNode = new Node(newNode, world, new PathInput(false, false, false, true, true, false, false, desiredPitch, desiredYaw + 45),
                     		new Color(0, 255, 150), newNode.cost + cost);
     			}

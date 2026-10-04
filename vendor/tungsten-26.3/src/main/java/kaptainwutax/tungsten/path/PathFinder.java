@@ -244,7 +244,8 @@ public class PathFinder {
 					}
 	    			while (TungstenModDataContainer.EXECUTOR.isRunning()) {
 	    				if (stop.get()) return;
-	    				if (TungstenModDataContainer.EXECUTOR.getPath().size() - TungstenModDataContainer.EXECUTOR.getCurrentTick() < 50) break;
+                        var snapshot = TungstenModDataContainer.EXECUTOR.getSnapshot();
+                        if (!snapshot.isRunning() || snapshot.path().size() - snapshot.tick() < 50) break;
 						try {
 							Thread.sleep(500);
 						} catch (InterruptedException e) {
@@ -933,11 +934,11 @@ public class PathFinder {
 			List<Callable<Void>> processingTasks = new ArrayList<>();
 					
 			if (validChildren.size() > 25) {
-				Node[][] chunks = ArrayChunkSplitter.splitArrayIntoChunksOfX(validChildren.toArray(new Node[validChildren.size()]), children.size()/25);
+				Node[][] chunks = ArrayChunkSplitter.splitArrayIntoChunksOfX(validChildren.toArray(new Node[validChildren.size()]), validChildren.size()/25);
 				
 				for (int i = 0; i < chunks.length; i++) {
 					Node[] nodes = chunks[i];
-					tasks.add(() -> {
+					processingTasks.add(() -> {
 						for (int j = 0; j < nodes.length; j++) {
 							Node child = nodes[j];
 							if (stop.get()) return null;
@@ -1163,7 +1164,7 @@ public class PathFinder {
         
         if (validLadderProximity) {
         	if (setCurrentPath(TARGET, this.start, TungstenModDataContainer.player)) {
-				NEXT_CLOSEST_BLOCKNODE_IDX.set(closestPosIDX+1);
+                NEXT_CLOSEST_BLOCKNODE_IDX.set(Math.min(closestPosIDX + 1, blockPath.size() - 1));
 	        	RenderHelper.renderBlockPath(blockPath, NEXT_CLOSEST_BLOCKNODE_IDX.get());
 				closed.clear();
 				return true;
@@ -1171,7 +1172,7 @@ public class PathFinder {
         } else if (closestPosIDX+1 > NEXT_CLOSEST_BLOCKNODE_IDX.get()+1 && heightDiff <= 1) {
 
 //			if (setCurrentPath(TARGET, this.start, TungstenModDataContainer.player)) {
-				NEXT_CLOSEST_BLOCKNODE_IDX.set(closestPosIDX+1);
+                NEXT_CLOSEST_BLOCKNODE_IDX.set(Math.min(closestPosIDX + 1, blockPath.size() - 1));
 	        	RenderHelper.renderBlockPath(blockPath, NEXT_CLOSEST_BLOCKNODE_IDX.get());
 				closed.clear();
 				return true;
@@ -1197,7 +1198,7 @@ public class PathFinder {
                 boolean isNeo = blockPath.get(NEXT_CLOSEST_BLOCKNODE_IDX.get()).isDoingNeo();
 
     			if (!isNeo || setCurrentPath(TARGET, this.start, TungstenModDataContainer.player)) {
-    				NEXT_CLOSEST_BLOCKNODE_IDX.set(closestPosIDX+1);
+                    NEXT_CLOSEST_BLOCKNODE_IDX.set(Math.min(closestPosIDX + 1, blockPath.size() - 1));
     	        	RenderHelper.renderBlockPath(blockPath, NEXT_CLOSEST_BLOCKNODE_IDX.get());
     				closed.clear();
     				return true;

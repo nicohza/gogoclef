@@ -92,8 +92,9 @@ public abstract class MixinClientPlayerEntity extends AbstractClientPlayer {
 			self.input.keyPresses.shift(),
 			self.isSprinting()
 		);
-		if (TungstenModDataContainer.EXECUTOR.isRunning() && TungstenModDataContainer.EXECUTOR.getCurrentTick() > 0) {
-			TungstenModDataContainer.EXECUTOR.getPath().get(TungstenModDataContainer.EXECUTOR.getCurrentTick() - 1).agent.compare(self, currentInput, true);
+		var snapshot = TungstenModDataContainer.EXECUTOR.getSnapshot();
+		if (snapshot.isRunning() && snapshot.tick() > 0) {
+			snapshot.path().get(snapshot.tick() - 1).agent.compare(self, currentInput, true);
 		} else if(!this.getAbilities().flying && Agent.INSTANCE != null) {
 			Agent.INSTANCE.compare(self, currentInput, false);
 		}
