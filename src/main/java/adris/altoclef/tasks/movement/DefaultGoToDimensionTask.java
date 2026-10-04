@@ -7,6 +7,7 @@ import adris.altoclef.tasksystem.Task;
 import adris.altoclef.util.Dimension;
 import adris.altoclef.util.helpers.WorldHelper;
 import net.minecraft.block.Blocks;
+import net.minecraft.item.Items;
 import net.minecraft.util.math.BlockPos;
 
 import java.util.Optional;
@@ -22,6 +23,8 @@ public class DefaultGoToDimensionTask extends Task {
     private final Dimension _target;
     // Cached to keep build properties alive if this task pauses/resumes.
     private final Task _cachedNetherBucketConstructionTask = new ConstructNetherPortalBucketTask();
+    private final Task _cachedNetherObsidianConstructionTask = new ConstructNetherPortalObsidianTask();
+    private boolean _buildingWithObsidian;
 
     public DefaultGoToDimensionTask(Dimension target) {
         _target = target;
@@ -123,7 +126,15 @@ public class DefaultGoToDimensionTask extends Task {
             return new EnterNetherPortalTask(Dimension.NETHER);
         }
         return switch (mod.getModSettings().getOverworldToNetherBehaviour()) {
-            case BUILD_PORTAL_VANILLA -> _cachedNetherBucketConstructionTask;
+            case BUILD_PORTAL_VANILLA -> {
+                // Keep this choice after placing the first frame block, when fewer
+                // than ten obsidian remain in inventory, and across interruptions.
+                if (mod.getItemStorage().getItemCount(Items.OBSIDIAN) >= 10) {
+                    _buildingWithObsidian = true;
+                }
+                yield _buildingWithObsidian
+                        ? _cachedNetherObsidianConstructionTask : _cachedNetherBucketConstructionTask;
+            }
             case GO_TO_HOME_BASE -> new GetToBlockTask(mod.getModSettings().getHomeBasePosition());
         };
     }

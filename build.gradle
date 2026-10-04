@@ -25,6 +25,18 @@ preprocess {
     patternAnnotation.set("adris.altoclef.multiversion.Pattern")
 }
 
+// Tests use stable TenorClef APIs and directly imported Minecraft types. Remap them
+// against the same external dependencies as main sources. The plugin's default test
+// classpaths include each intermediate module's main output, forcing compilation of
+// 1.21.11 (and its optional Ostinato jar) even when only building/testing 26.3.
+tasks.withType(PreprocessTask).configureEach {
+    if (name == 'preprocessTestCode') {
+        def mainPreprocess = tasks.named('preprocessCode', PreprocessTask).get()
+        classpath = mainPreprocess.classpath
+        remappedClasspath = mainPreprocess.remappedClasspath
+    }
+}
+
 // The unobfuscated Loom has no mappings, and its mappingConfiguration getter throws, which the preprocessor
 // probes reflectively. Hand it an identity tiny file instead (26.x names are already the Mojang names);
 // the real 26.3 <-> 1.21.11 renames come from versions/mapping-26.3-1.21.11.txt.
@@ -42,16 +54,16 @@ if (unobfuscated) {
 java {
     sourceCompatibility = unobfuscated ? JavaVersion.VERSION_25 : JavaVersion.VERSION_21
     targetCompatibility = unobfuscated ? JavaVersion.VERSION_25 : JavaVersion.VERSION_21
+    if (unobfuscated) {
+        // Gradle stays on 21 for the preprocessor; compile, test and run Minecraft on 25.
+        toolchain.languageVersion = JavaLanguageVersion.of(25)
+    }
 }
 
 
 
 tasks.withType(JavaCompile).configureEach {
     options.release = unobfuscated ? 25 : 21
-    if (unobfuscated) {
-        // Gradle itself stays on JDK 21: the preprocessor's embedded Kotlin cannot parse Java 25 version strings.
-        javaCompiler = javaToolchains.compilerFor { languageVersion = JavaLanguageVersion.of(25) }
-    }
 }
 
 base {
@@ -317,14 +329,16 @@ dependencies {
     // 1.16.1:  cd vendor/tungsten-1.16.1 && ./gradlew remapJar
     // Then copy matching tungsten-fabric-*.jar to libs/ (or leave in vendor build/libs).
     // COMPILE NOTE: do not run altoclef compileJava while runClient is live.
-    if (mcVersion == 12111 || mcVersion == 12101 || mcVersion == 12100 || mcVersion == 11601) {
+    if (mcVersion == 260300 || mcVersion == 12111 || mcVersion == 12101 || mcVersion == 12100 || mcVersion == 11601) {
         def tungstenJars = []
         def libsDir = file("${rootProject.projectDir}/libs")
         def vendorLibsTip = file("${rootProject.projectDir}/vendor/tungsten/build/libs")
         def vendorLibs1161 = file("${rootProject.projectDir}/vendor/tungsten-1.16.1/build/libs")
-        def vendorLibs = (mcVersion == 11601) ? vendorLibs1161 : vendorLibsTip
+        def vendorLibs = (mcVersion == 260300) ? file("${rootProject.projectDir}/vendor/tungsten-26.3/build/libs") : ((mcVersion == 11601) ? vendorLibs1161 : vendorLibsTip)
         def nameOk = { String n ->
             if (n.contains('sources') || n.contains('dev') || n.contains('javadoc')) return false
+            if (mcVersion == 260300) return n.contains('26.3')
+            if (n.contains('26.3')) return false
             if (mcVersion == 11601) return n.contains('1.16.1') || n.contains('1161')
             // tip: reject 1.16.1 jars
             return !n.contains('1.16.1') && !n.contains('1161')
@@ -343,7 +357,8 @@ dependencies {
         if (!tungstenJars.isEmpty()) {
             println "[altoclef] Tungsten jars for ${project.name}: ${tungstenJars*.name}"
             tungstenJars.each { jarFile ->
-                modImplementation files(jarFile)
+                if (mcVersion >= 260000) implementation files(jarFile)
+                else modImplementation files(jarFile)
                 // See the long note in the 1.16.1 Ostinato branch above: a flat-file jar
                 // has no capabilities, so `include files(...)` makes Loom's
                 // processIncludeJars fail with
@@ -359,6 +374,7 @@ dependencies {
 }
 shadowJar {
     configurations = [project.configurations.shadow]
+    from rootProject.file('LICENSE')
 }
 
 if (unobfuscated) {
@@ -406,11 +422,22 @@ if (unobfuscated) {
 
 processResources {
     inputs.property("version", project.version)
+    def minimumLoader = loaderVersions.get(mcVersion, project.loader_version)
+    def minimumJava = getJavaVersion().majorVersion
+    def mixinCompatibility = unobfuscated ? 'JAVA_25' : 'JAVA_21'
     inputs.property("mcVersion", project.name)
+    inputs.property("loaderVersion", minimumLoader)
+    inputs.property("javaVersion", minimumJava)
+    inputs.property("mixinCompatibility", mixinCompatibility)
 
     filesMatching("fabric.mod.json") {
         expand "version": project.version,
-                "mcVersion": project.name
+                "mcVersion": project.name,
+                "loaderVersion": minimumLoader,
+                "javaVersion": minimumJava
+    }
+    filesMatching("altoclef.mixins.json") {
+        expand "mixinCompatibility": mixinCompatibility
     }
 
     from(sourceSets.main.resources.srcDirs) {
@@ -434,11 +461,12 @@ test {
 // if it is present.
 // If you remove this task, sources will not be generated.
 task sourcesJar(type: Jar, dependsOn: classes) {
+    archiveClassifier = 'sources'
     from sourceSets.main.allSource
 }
 
 jar {
-    from "LICENSE"
+    from rootProject.file('LICENSE')
 }
 
 // configure the maven publication

@@ -1,0 +1,5 @@
+[03:05:06] [Test worker/INFO]: [test] TRAILING activated (dist=25.0 height=0.0 stalled=false trail=3 pts)
+[03:05:06] [Test worker/INFO]: [test] TRAILING mode ended (dist=10.0)
+[03:05:06] [Test worker/INFO]: [test] TRAILING activated (dist=10.0 height=6.0 stalled=false trail=3 pts)
+[03:05:06] [Test worker/INFO]: [test] TRAILING mode ended (dist=8.0)
+[03:05:06] [Test worker/INFO]: [test] TRAILING activated (dist=10.0 height=6.0 stalled=false trail=3 pts)

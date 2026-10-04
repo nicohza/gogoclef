@@ -1,0 +1,33 @@
+TenorClef + Ostinato + Tungsten for Minecraft 26.3
+
+Development checkpoint: three-rod survival validation is incomplete.
+See VALIDATION.txt before use.
+
+1. Create a Minecraft 26.3 profile with Fabric Loader 0.19.5 and Java 25.
+2. Copy all FOUR jars from mods/ into that profile's mods folder.
+3. Remove older duplicate TenorClef/AltoClef, Baritone/Ostinato and Tungsten jars.
+4. In game: #set movementBackend tungsten
+   Keep #set kinematicTravel false for this setup.
+   The supplied baritone/settings.txt is for a NEW profile. For an existing
+   profile, use the command to preserve your other settings.
+5. TenorClef commands include @get stone_pickaxe 1, @get blaze_rod 3,
+   @gamer and @stop.
+
+Tungsten handles supported travel routes. Ostinato handles mining and building,
+and may recover travel when Tungsten cannot complete a route. A loaded Tungsten
+mod alone does not prove it controlled a route: look for CustomGoal: Tungsten
+travel in the log, and check for any subsequent fallback message.
+
+The TenorClef jar is rebuilt from the included source fixes. The matching
+Ostinato jar is the repository's unmodified 26.3 dependency. Tungsten is built
+from the source port in source-changes/vendor/tungsten-26.3, based on the
+TenorClef vendor pin 5cb12ad65c0e045aa5a02d017c98df64eeda6d40.
+Fabric API 0.161.0+26.3 is included.
+
+source-changes/ is an overlay of changed source/build/docs files. Apply it to
+nicopwnd/TenorClef revision aae83b16e9abe0b2c5048d99221f54709ba84b38.
+Follow README.md and vendor/tungsten-26.3/README.md for build instructions.
+Use JDK21 for Gradle and a JDK25 toolchain. On Unix use bash gradlew if an
+archive extraction did not preserve executable permissions.
+
+See VALIDATION.txt for actual test coverage and SHA256SUMS.txt for checksums.

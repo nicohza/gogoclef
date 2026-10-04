@@ -9,9 +9,8 @@ TenorClef is not affiliated with AltoClef, Marvion, or MiranCZ. Those projects a
 the upstream history of this fork.
 
 > [!WARNING]
-> **Only the Minecraft 26.3 build has been tested** (manually, in-game). The 26.3 port is experimental.
-> Other versions (1.21.4, 1.21.11, 1.16.1) were **not** rebuilt or tested after the 26.3 mixin changes.
-> The changes are wrapped in `//#if MC >= 260000` blocks, so older targets should be unaffected, but this is unverified.
+> The Minecraft 26.3 port is experimental. Build and startup checks do not establish
+> that every autonomous task works in-game; start with a single-player test world.
 
 ## Supported versions
 
@@ -20,7 +19,7 @@ for the Minecraft versions Ostinato is built for:
 
 | Minecraft | Status | Ostinato | Notes |
 | --- | --- | --- | --- |
-| 26.3 | Experimental, tested in-game | branch `26.3` (`libs/baritone-unoptimized-fabric-ostinato-26.3.jar`) | Java 25; opt-in via `-Pwith26`; the only version tested after the port |
+| 26.3 | Experimental | branch `26.3` (`libs/baritone-unoptimized-fabric-ostinato-26.3.jar`) | Java 25; opt-in via `-Pwith26` |
 | 1.21.4 | Primary | `main` (`libs/baritone-unoptimized-fabric-1.21.4.jar`) | Anarchy target; vanilla recipe-book crafting disabled (1.21.2+ servers do not sync recipes) |
 | 1.16.1 | Legacy | branch `1.16.1` (`libs/baritone-unoptimized-fabric-1.16.1.jar`) | Legacy pairing |
 | 1.21.11 | Experimental | branch `1.21.11` (built from source) | Not a release target |
@@ -45,13 +44,21 @@ break the other targets. It uses Mojang names (Minecraft 26.x is unobfuscated) a
 
 ### Install (26.3)
 
-Put exactly these three jars in your `mods` folder:
+Put these jars in your `mods` folder:
 
 1. `fabric-api-0.161.0+26.3.jar`
 2. `altoclef-26.3-<version>.jar` (the full jar, **not** the `-slim` one)
 3. `baritone-unoptimized-fabric-ostinato-26.3.jar`
 
-Do not install a second Baritone or another TenorClef jar. Start with a single-player world.
+4. `tungsten-fabric-ALPHA-1.6.0-26.3.jar` for Tungsten travel
+
+Build the matching Tungsten jar from `vendor/tungsten-26.3` (see its README), then
+run `#set movementBackend tungsten` in chat. Ostinato handles mining and building
+and can recover travel when Tungsten cannot finish a route. For an Ostinato-only
+setup, omit Tungsten and select `#set movementBackend baritone`.
+Do not install duplicate TenorClef, Baritone or Tungsten jars.
+The separate experimental kinematic controller is off by default on 26.3;
+`-Dtenorclef.kinematic=true` explicitly enables it.
 
 ### Build (26.3)
 
@@ -59,18 +66,37 @@ Do not install a second Baritone or another TenorClef jar. Start with a single-p
 > Run Gradle itself on **JDK 21** (set `JAVA_HOME` to a JDK 21 install, and run `gradlew.bat --stop`
 > first if a daemon on another JDK is still running). Gradle on JDK 25 fails in
 > `:1.21.4:preprocessCode` with the message `25.0.4.1`. The Java 25 toolchain is used
-> automatically to compile 26.3.
+> to compile, test, and launch 26.3. Install both JDKs; Gradle does not download them.
 
-Run:
+On Windows, set `JAVA_HOME` to JDK 21 and `JAVA_HOME_25` to JDK 25, then run:
 
 ```bat
-gradlew.bat :26.3:build -Pwith26 "-Pmod_version=0.23.3" -x ":26.3:test"
+gradlew.bat :26.3:build -Pwith26 -Porg.gradle.java.installations.fromEnv=JAVA_HOME_25
 ```
 
-### Known limitations (26.3)
+On Linux/macOS, with the same environment variables:
 
-- `MixinLocalPlayer` is skipped silently on 26.3 (`require = 0`). A replacement for `getPitch`/`getYaw`
-  (`getViewXRot`/`getViewYRot`) is not implemented yet.
+```sh
+./gradlew :26.3:build -Pwith26 -Porg.gradle.java.installations.fromEnv=JAVA_HOME_25
+```
+
+The installable mod is `versions/26.3/build/libs/altoclef-26.3-<version>.jar`.
+Do not install the `-slim` or `-sources` jars. To launch a development client, replace
+`:26.3:build` with `:26.3:runClient` in the same command.
+
+### Runtime compatibility (26.3)
+
+The local-player yaw hook uses `getViewYRot(float)`. Pitch already inherits the
+vanilla implementation on 26.3, so it needs no local-player injection.
+Inventory crafting falls back to manual slot placement when the modern recipe-book
+map is unavailable, preventing stalls while crafting planks and other ingredients.
+When carrying at least ten obsidian, Nether travel builds with those blocks and
+keeps the same construction task through interruptions. Otherwise it uses buckets.
+
+The second-bucket recovery timer counts travel and completed mining as progress,
+so it does not cancel iron collection just because no ingot has been smelted yet.
+On exit, TenorClef stops Ostinato's background workers and saves visited world
+caches so Minecraft's shutdown watchdog does not report a crash.
 
 ## Install
 

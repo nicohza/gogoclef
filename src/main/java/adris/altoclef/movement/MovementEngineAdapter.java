@@ -39,6 +39,8 @@ public final class MovementEngineAdapter {
     private static Method pathResultAccepted;
     private static Method pathResultBackend;
     private static Method preferenceMethod;
+    private static IBaritone boundBaritone;
+    private static Object boundEngine;
 
     /** Last travel dispatch, read by TravelTrace: the mover that took it, and whether it was not the preferred one. */
     private static String lastBackend = "NONE";
@@ -92,13 +94,21 @@ public final class MovementEngineAdapter {
         classesPresent = null;
         engineDetail = "not probed";
         factoryMethod = null;
+        boundBaritone = null;
+        boundEngine = null;
     }
 
-    private static Object engineFor(IBaritone baritone) throws Exception {
+    private static synchronized Object engineFor(IBaritone baritone) throws Exception {
         if (!probeClasses() || baritone == null) {
             return null;
         }
-        return factoryMethod.invoke(null, baritone);
+        // Ostinato's factory creates a stateful engine on each call. Reuse it so
+        // status/cancel observe the backend selected by the preceding dispatch.
+        if (boundEngine == null || boundBaritone != baritone) {
+            boundEngine = factoryMethod.invoke(null, baritone);
+            boundBaritone = baritone;
+        }
+        return boundEngine;
     }
 
     private static boolean accepted(Object pathResult) throws Exception {
@@ -118,6 +128,12 @@ public final class MovementEngineAdapter {
             return false;
         }
         IBaritone bari = mod.getClientBaritone();
+        //#if MC >= 260300
+        // CustomGoalProcess supervises Tungsten travel and falls back when it
+        // stops short. Direct engine dispatch otherwise restarts the same failed
+        // search every time the task sees an idle engine.
+        cancel();
+        //#else
         if (probeClasses()) {
             try {
                 Object eng = engineFor(bari);
@@ -136,10 +152,17 @@ public final class MovementEngineAdapter {
                 Debug.logMessage("MovementEngineAdapter: engine goTo failed: " + t + " — fallback");
             }
         }
+        //#endif
         bari.getCustomGoalProcess().setGoalAndPath(goal);
         dispatches++;
         lastBackend = "CUSTOM_GOAL_PROCESS";
+        //#if MC >= 260300
+        // The process selects the actual backend asynchronously; its own log
+        // reports Tungsten completion or fallback.
+        lastFellBack = false;
+        //#else
         lastFellBack = classesPresent;
+        //#endif
         return true;
     }
 
