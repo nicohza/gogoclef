@@ -18,7 +18,11 @@ Development and gameplay validation now target **Minecraft 26.3 with experimenta
 kinematic movement**. Use the [kinematic release](#kinematic-release-263), which
 selects `movementBackend baritone` and enables `kinematicTravel`. Tungsten is not
 part of this configuration. Other versions and previous Tungsten releases remain
-historical compatibility information below. The [ender-pearl test report](docs/testing/26.3-kinematic-ender-pearl.md) records the current gameplay blockers.
+historical compatibility information below. After fixing dimension selection,
+portal-trip interruption, and drowning recovery, a [fresh pearl retest](docs/testing/26.3-kinematic-ender-pearl-retest.md)
+completed `@get ender_pearl 3` with **3/3 pearls and zero deaths in 4m27.907s**.
+This is one successful source-build trial. The checkpoint release jars below
+predate these fixes.
 
 ## Supported versions
 

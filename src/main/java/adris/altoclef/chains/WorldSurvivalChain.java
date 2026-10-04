@@ -8,6 +8,7 @@ import adris.altoclef.tasks.movement.EnterNetherPortalTask;
 import adris.altoclef.tasks.movement.EscapeFromLavaTask;
 import adris.altoclef.tasks.movement.GetToBlockTask;
 import adris.altoclef.tasks.movement.SafeRandomShimmyTask;
+import adris.altoclef.tasks.movement.SurfaceForAirTask;
 import adris.altoclef.tasksystem.TaskRunner;
 import adris.altoclef.util.ItemTarget;
 import adris.altoclef.util.helpers.LookHelper;
@@ -29,7 +30,7 @@ public class WorldSurvivalChain extends SingleTaskChain {
 
     private final TimerGame wasInLavaTimer = new TimerGame(1);
     private final TimerGame portalStuckTimer = new TimerGame(5);
-    private boolean wasAvoidingDrowning;
+    private boolean recoveringAir;
 
     private BlockPos _extinguishWaterPosition;
 
@@ -48,8 +49,16 @@ public class WorldSurvivalChain extends SingleTaskChain {
 
         AltoClef mod = AltoClef.getInstance();
 
-        // Drowning
-        handleDrowning(mod);
+        // Preempt underwater travel before air runs out. Once started, recover
+        // fully: using one threshold for both decisions thrashes at the surface.
+        int air = mod.getPlayer().getAir();
+        int maxAir = mod.getPlayer().getMaxAir();
+        recoveringAir = needsAirRecovery(mod.getModSettings().shouldAvoidDrowning(),
+                mod.getPlayer().isTouchingWater(), air, maxAir, recoveringAir);
+        if (recoveringAir) {
+            setTask(new SurfaceForAirTask());
+            return 100;
+        }
 
         // Lava Escape
         if (isInLavaOhShit(mod) && mod.getBehaviour().shouldEscapeLava()) {
@@ -114,26 +123,10 @@ public class WorldSurvivalChain extends SingleTaskChain {
         return Float.NEGATIVE_INFINITY;
     }
 
-    private void handleDrowning(AltoClef mod) {
-        // Swim
-        boolean avoidedDrowning = false;
-        if (mod.getModSettings().shouldAvoidDrowning()) {
-            if (!mod.getClientBaritone().getPathingBehavior().isPathing()) {
-                if (mod.getPlayer().isTouchingWater() && mod.getPlayer().getAir() < mod.getPlayer().getMaxAir()) {
-                    // Swim up!
-                    mod.getInputControls().hold(Input.JUMP);
-                    //mod.getClientBaritone().getInputOverrideHandler().setInputForceState(Input.JUMP, true);
-                    avoidedDrowning = true;
-                    wasAvoidingDrowning = true;
-                }
-            }
-        }
-        // Stop swimming up if we just swam.
-        if (wasAvoidingDrowning && !avoidedDrowning) {
-            wasAvoidingDrowning = false;
-            mod.getInputControls().release(Input.JUMP);
-            //mod.getClientBaritone().getInputOverrideHandler().setInputForceState(Input.JUMP, false);
-        }
+    static boolean needsAirRecovery(boolean enabled, boolean touchingWater,
+                                    int air, int maxAir, boolean recovering) {
+        return enabled && touchingWater
+                && (air <= maxAir / 2 || (recovering && air < maxAir));
     }
 
     private boolean isInLavaOhShit(AltoClef mod) {
@@ -174,6 +167,7 @@ public class WorldSurvivalChain extends SingleTaskChain {
 
     @Override
     protected void onStop() {
+        recoveringAir = false;
         super.onStop();
     }
 }

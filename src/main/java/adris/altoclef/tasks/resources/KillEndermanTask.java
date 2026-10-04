@@ -23,6 +23,7 @@ import java.util.function.Predicate;
 public class KillEndermanTask extends ResourceTask {
 
     private final int _count;
+    private Task _dimensionTravelTask;
 
     private final TimerGame _lookDelay = new TimerGame(0.2);
 
@@ -44,10 +45,19 @@ public class KillEndermanTask extends ResourceTask {
 
     @Override
     protected Task onResourceTick(AltoClef mod) {
+        // Finish a started Nether trip before considering newly detected mobs.
+        // Otherwise an underground Overworld enderman can abandon a half-built
+        // portal and pull us into an endless underwater pursuit.
+        if (_dimensionTravelTask != null) {
+            if (!_dimensionTravelTask.isFinished()) return _dimensionTravelTask;
+            _dimensionTravelTask = null;
+        }
+
         // Dimension
         if (!mod.getEntityTracker().entityFound(EndermanEntity.class)) {
             if (WorldHelper.getCurrentDimension() != Dimension.NETHER) {
-                return getToCorrectDimensionTask(mod);
+                _dimensionTravelTask = getToCorrectDimensionTask(mod);
+                return _dimensionTravelTask;
             }
             //nearest warped forest related block
             Optional<BlockPos> nearest = mod.getBlockScanner().getNearestBlock(Blocks.TWISTING_VINES, Blocks.TWISTING_VINES_PLANT, Blocks.WARPED_HYPHAE, Blocks.WARPED_NYLIUM);
