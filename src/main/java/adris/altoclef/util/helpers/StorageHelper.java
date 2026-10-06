@@ -210,6 +210,22 @@ public class StorageHelper {
     public static boolean shouldSaveStack(AltoClef mod,Block block, ItemStack stack) {
         if (!stack.getItem().equals(Items.IRON_PICKAXE) || mod.getItemStorage().hasItem(Items.DIAMOND_PICKAXE)) return false;
 
+        //#if MC >= 260300
+        // Preserving the only usable tool leaves mining tasks attacking with
+        // a sword/fist forever: the inventory still satisfies their tool tier.
+        boolean hasAlternative = false;
+        for (Slot slot : Slot.getCurrentScreenSlots()) {
+            if (!slot.isSlotInPlayerInventory()) continue;
+            ItemStack alternative = getItemStackInSlot(slot);
+            if (!alternative.isEmpty() && alternative.getItem() != Items.IRON_PICKAXE
+                    && alternative.isCorrectToolForDrops(block.defaultBlockState())) {
+                hasAlternative = true;
+                break;
+            }
+        }
+        if (!hasAlternative) return false;
+        //#endif
+
         boolean diamondRelatedBlock = block.equals(Blocks.DIAMOND_BLOCK) || block.equals(Blocks.DIAMOND_ORE) || block.equals(Blocks.DEEPSLATE_DIAMOND_ORE);
 
         // if the durability is really low, mine only diamond related stuff

@@ -1,0 +1,77 @@
+diff --git a/.github/workflows/gradle.yml b/.github/workflows/gradle.yml
+index 4531ca48..423b2ce1 100644
+--- a/.github/workflows/gradle.yml
++++ b/.github/workflows/gradle.yml
+@@ -10,13 +10,44 @@ permissions:
+   contents: read
+ 
+ # TenorClef always runs on Ostinato, so only the versions Ostinato is built for are compiled:
+-# 1.21.4 and 1.16.1 (jars committed in libs/) and 1.21.11 (Ostinato main, built here).
++# 26.3, 1.21.4 and 1.16.1 (jars committed in libs/) and 1.21.11 (built here).
+ # The other versions are preprocess-only nodes (see build.gradle).
+-# Tungsten is OPTIONAL — jobs must pass without a tungsten jar.
++# Tungsten is optional at runtime; the 26.3 job also checks its vendored source port.
+ #
+-# Required green: 1.21.4 + 1.16.1. Experimental / non-blocking: 1.21.11 (Ostinato branch 1.21.11).
++# Required green: 26.3 + 1.21.4 + 1.16.1. Experimental / non-blocking: 1.21.11 (Ostinato branch 1.21.11).
+ 
+ jobs:
++  build-263:
++    name: Build Fabric 26.3 (Ostinato 26.3)
++    runs-on: ubuntu-latest
++    steps:
++      - uses: actions/checkout@v4
++      - uses: actions/setup-java@v5
++        with:
++          distribution: temurin
++          java-version: '25'
++      # Keep Gradle on 21 for the preprocessor; test and launch 26.3 on 25.
++      - uses: actions/setup-java@v5
++        with:
++          distribution: temurin
++          java-version: '21'
++          cache: gradle
++      - name: Build Tungsten 26.3
++        run: ./gradlew -p vendor/tungsten-26.3 build sourcesJar -Porg.gradle.java.installations.fromEnv=JAVA_HOME_25_X64 --stacktrace
++      - name: Build and test 26.3
++        run: ./gradlew :26.3:build -Pwith26 -Porg.gradle.java.installations.fromEnv=JAVA_HOME_25_X64 --stacktrace
++      - uses: actions/upload-artifact@v4
++        with:
++          name: tenorclef-26.3
++          path: |
++            versions/26.3/build/libs/*.jar
++            libs/baritone-unoptimized-fabric-ostinato-26.3.jar
++            vendor/tungsten-26.3/build/libs/tungsten-fabric-ALPHA-1.6.0-26.3.jar
++            !versions/26.3/build/libs/*-slim.jar
++            !versions/26.3/build/libs/*-sources.jar
++          if-no-files-found: error
++          retention-days: 14
++
+   build-1214:
+     name: Compile Fabric 1.21.4 (Ostinato 1.21.4)
+     runs-on: ubuntu-latest
+diff --git a/.github/workflows/release.yml b/.github/workflows/release.yml
+index 0fd553e1..b97b7e5c 100644
+--- a/.github/workflows/release.yml
++++ b/.github/workflows/release.yml
+@@ -45,13 +45,18 @@ jobs:
+         run: ./gradlew ${{ matrix.mc == '26.3' && '-Pwith26 -Porg.gradle.java.installations.fromEnv=JAVA_HOME_25_X64' || '' }} :${{ matrix.mc }}:build -x test --stacktrace
+       - name: Collect jar
+         run: |
++          set -euo pipefail
+           mkdir -p out
++          selected=0
+           for f in versions/${{ matrix.mc }}/build/libs/*.jar; do
+-            case "$f" in *-sources.jar|*-dev.jar|*-javadoc.jar) continue;; esac
++            case "$f" in *-sources.jar|*-dev.jar|*-javadoc.jar|*-slim.jar|*-all.jar) continue;; esac
++            test -f "$f" || continue
++            selected=$((selected + 1))
++            test "$selected" -eq 1
+             cp "$f" "out/tenorclef-mc${{ matrix.mc }}-${{ github.event.inputs.tag || github.ref_name }}.jar"
+           done
+           ls -la out
+-          test -n "$(ls out)"
++          test "$selected" -eq 1
+       - uses: actions/upload-artifact@v4
+         with:
+           name: jar-${{ matrix.mc }}

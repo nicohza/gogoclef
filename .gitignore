@@ -22,3 +22,8 @@ out/
 # Personal machine overrides (java.home, larger jvmargs, etc.)
 gradle.properties.local
 !libs/baritone-unoptimized-fabric-ostinato-26.3.jar
+
+!vendor/tungsten-26.3/gradle/wrapper/gradle-wrapper.jar
+
+# Distribute compiled checkpoint bundles through Outputs or release assets.
+/checkpoints/**/*.zip

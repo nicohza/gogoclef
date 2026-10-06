@@ -7,6 +7,7 @@ is built for; never load a jar built for one Minecraft version into another.
 
 | TenorClef module | Ostinato source | Status |
 | --- | --- | --- |
+| `26.3` | Ostinato branch `26.3`, staged as `libs/baritone-unoptimized-fabric-ostinato-26.3.jar` | Experimental; Java 25 |
 | `1.21.4` | Ostinato `main` (MC 1.21.4), staged as `libs/baritone-unoptimized-fabric-1.21.4.jar` | Primary; compiles in CI |
 | `1.16.1` | Ostinato branch `1.16.1`, staged as `libs/baritone-unoptimized-fabric-1.16.1.jar` | Legacy pairing; compiles in CI |
 | `1.21.11` | Ostinato branch `1.21.11`, Fabric artifact (CI builds it) | Experimental |
@@ -28,6 +29,15 @@ To refresh a staged jar, build the matching Ostinato branch and copy its
 - `1.16.1`: JDK 8, `./gradlew build -Pbaritone.fabric_build`.
 - `1.21.11`: JDK 21, build branch `1.21.11` with `./gradlew :fabric:build`, then place the jar in
   `../Ostinato/dist/` (or `libs/baritone-unoptimized-fabric-ostinato-*.jar`).
+
+## Minecraft 26.3
+
+Use the committed `libs/baritone-unoptimized-fabric-ostinato-26.3.jar` with the
+full TenorClef 26.3 jar and Fabric API `0.161.0+26.3`. Install Fabric Loader
+0.19.5 and run Minecraft on Java 25. Keep only one Baritone/Ostinato jar in
+`mods/`; upstream Baritone does not provide TenorClef's `baritone.altoclef` API.
+See the [26.3 build instructions](../README.md#build-263) for both JDKs and
+the `-Pwith26` opt-in.
 
 ## Tungsten
 

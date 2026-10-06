@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "tungsten",
+  "version": "${version}",
+  "name": "Tungsten",
+  "description": "Pathfinder!",
+  "authors": [
+    "Hackerokuz"
+  ],
+  "contact": {
+    "homepage": "https://github.com/Hackerokuz/Tungsten",
+    "sources": "https://github.com/Hackerokuz/Tungsten"
+  },
+  "license": "GPL-3.0-only",
+  "icon": "assets/tungsten/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "kaptainwutax.tungsten.TungstenMod"
+    ]
+  },
+  "mixins": [
+    "tungsten.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "26.3",
+    "java": ">=25",
+    "fabric-api": "*"
+  },
+  "suggests": {}
+}

@@ -24,6 +24,15 @@ public class SatisfyMiningRequirementTask extends Task {
 
     @Override
     protected Task onTick() {
+        //#if MC >= 260300
+        // Use diamonds already carried for replacement tools before gathering
+        // lower-tier materials again after a pickaxe breaks.
+        if (requirement != MiningRequirement.HAND
+                && adris.altoclef.AltoClef.getInstance().getItemStorage()
+                    .getItemCountInventoryOnly(Items.DIAMOND) >= 3) {
+            return TaskCatalogue.getItemTask(Items.DIAMOND_PICKAXE, 1);
+        }
+        //#endif
         switch (requirement) {
             case HAND:
                 // Will never happen if you program this right

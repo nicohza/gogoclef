@@ -49,6 +49,10 @@ public class GetToEntityTask extends Task implements ITaskRequiresGrounded {
             Blocks.SWEET_BERRY_BUSH
     };
     private Task _unstuckTask = null;
+    //#if MC >= 260300
+    private boolean _useGoalFallback;
+    private long _followStartedMs;
+    //#endif
 
     public GetToEntityTask(Entity entity, double closeEnoughDistance) {
         _entity = entity;
@@ -115,7 +119,21 @@ public class GetToEntityTask extends Task implements ITaskRequiresGrounded {
         _progress.reset();
         stuckCheck.reset();
         _wanderTask.resetWander();
+        //#if MC >= 260300
+        // Keep the deadline across combat interruptions of this same approach.
+        if (_followStartedMs == 0) _followStartedMs = System.currentTimeMillis();
+        //#endif
     }
+
+    //#if MC >= 260300
+    private void useGoalFallback(AltoClef mod) {
+        _useGoalFallback = true;
+        mod.getMovement().cancel();
+        _progress.reset();
+        stuckCheck.reset();
+        adris.altoclef.Debug.logMessage("Entity approach: Tungsten stalled; falling back to Ostinato follow goal");
+    }
+    //#endif
 
     @Override
     protected Task onTick() {
@@ -183,7 +201,21 @@ public class GetToEntityTask extends Task implements ITaskRequiresGrounded {
 
         // Phase 2/3: MovementController (MovementEngineAdapter) follow; fall back to CustomGoalProcess.
         MovementController movement = mod.getMovement();
+        //#if MC >= 260300
+        if (!_useGoalFallback && System.currentTimeMillis() - _followStartedMs >= 15_000
+                && !mod.getPlayer().closerThan(_entity, _closeEnoughDistance)
+                && "TUNGSTEN".equals(adris.altoclef.movement.MovementEngineAdapter.requestedBackend())) {
+            useGoalFallback(mod);
+        }
+        //#endif
         if (!movement.isPathingOrActive()) {
+            //#if MC >= 260300
+            if (_useGoalFallback) {
+                // This dynamic goal stays with Ostinato and permits mining/placing
+                // when the target is separated from us by blocks.
+                mod.getClientBaritone().getCustomGoalProcess().setGoalAndPath(new GoalFollowEntity(_entity, _closeEnoughDistance));
+            } else
+            //#endif
             if (!movement.followEntity(_entity, _closeEnoughDistance)) {
                 movement.ensureGoalAndPath(new GoalFollowEntity(_entity, _closeEnoughDistance));
             }
@@ -194,6 +226,12 @@ public class GetToEntityTask extends Task implements ITaskRequiresGrounded {
         }
 
         if (!_progress.check(mod)) {
+            //#if MC >= 260300
+            if (!_useGoalFallback && "TUNGSTEN".equals(adris.altoclef.movement.MovementEngineAdapter.requestedBackend())) {
+                useGoalFallback(mod);
+                return null;
+            }
+            //#endif
             // Phase 6: TIMEOUT → RETRY/ALTERNATE_PATH then ABORT
             RecoveryDecision d = failWithRecovery(FailureReason.TIMEOUT,
                     "Failed to make progress toward entity");

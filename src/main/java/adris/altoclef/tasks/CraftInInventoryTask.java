@@ -5,6 +5,7 @@ import adris.altoclef.tasks.resources.CollectRecipeCataloguedResourcesTask;
 import adris.altoclef.tasks.slot.ReceiveCraftingOutputSlotTask;
 import adris.altoclef.tasksystem.Task;
 import adris.altoclef.util.ItemTarget;
+import adris.altoclef.util.JankCraftingRecipeMapping;
 import adris.altoclef.util.RecipeTarget;
 import adris.altoclef.util.helpers.ItemHelper;
 import adris.altoclef.util.helpers.StorageHelper;
@@ -89,7 +90,10 @@ public class CraftInInventoryTask extends ResourceTask {
         // No need to free inventory, output gets picked up.
 
         setDebugState("Crafting in inventory... for " + toGet);
+        // Modern clients do not expose the old recipe map. A book task with no
+        // mapped recipe cannot send a craft request and would wait forever.
         return mod.getModSettings().shouldUseCraftingBookToCraft()
+                && JankCraftingRecipeMapping.getMinecraftMappedRecipe(_target.getRecipe(), _target.getOutputItem()).isPresent()
                 ? new CraftGenericWithRecipeBooksTask(_target)
                 : new CraftGenericManuallyTask(_target);
     }

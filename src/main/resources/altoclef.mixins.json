@@ -2,7 +2,7 @@
   "required": true,
   "minVersion": "0.8",
   "package": "adris.altoclef.mixins",
-  "compatibilityLevel": "JAVA_21",
+  "compatibilityLevel": "${mixinCompatibility}",
   "mixins": [
     "AbstractFurnaceScreenHandlerAccessor",
     "AxeItemAccessor",
@@ -34,6 +34,8 @@
     "ClientBlockBreakMixin",
     "ClientOpenScreenMixin",
     "ClientTickMixin",
+    "ClientShutdownMixin",
+    "OstinatoWorldCacheAccessor",
     "DrawableHelperInvoker",
     "EntryMixin",
     "LoadChunkMixin",

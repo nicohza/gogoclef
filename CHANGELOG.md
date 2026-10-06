@@ -1,3 +1,14 @@
+# Minecraft 26.3 kinematic checkpoint (2026-10-04)
+
+Separate experimental variant of the recovered **0.22.2 checkpoint**; this does
+not renumber the releases below.
+
+- Full `altoclef-26.3-0.22.2-kinematic.jar` enables kinematic travel and selects
+  the Baritone backend automatically. An explicit JVM false override is retained.
+- Matching Ostinato and Fabric API jars are supplied in the release bundle.
+- The blaze-rod test was stopped by the user at 0/3; completion remains unvalidated.
+- See [installation, validation scope and release assets](docs/releases/26.3-kinematic.md).
+
 # TenorClef 0.23.3
 
 Pairs with Ostinato v1.0.8.

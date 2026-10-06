@@ -6,6 +6,7 @@ Portable builds for TenorClef. No machine-specific paths in committed `gradle.pr
 
 | What you build | JDK | Notes |
 | --- | --- | --- |
+| TenorClef `26.3` | **JDK 21 for Gradle, JDK 25 toolchain** | Compile, tests and client launch use 25; see [README](../README.md#build-263) |
 | TenorClef modules (`1.21.4`, `1.21.11`, `1.16.1`) | **JDK 21** | Root Loom build; `jvmdowngrader` lowers bytecode for older MC |
 | Ostinato `main` (MC 1.21.4) and `1.21.11` | **JDK 21** | Gradle 8.x / Unimined |
 | Ostinato `1.16.1` branch | **JDK 8** | Gradle **4.9** — do not use JDK 21 for that checkout |
@@ -90,13 +91,21 @@ gradlew.bat :1.21.11:compileJava
 
 Uses the committed `libs/baritone-unoptimized-fabric-1.21.4.jar` (Ostinato `main`, JDK 21, `./gradlew :fabric:build`).
 
+### 26.3 (experimental)
+
+Uses the committed `libs/baritone-unoptimized-fabric-ostinato-26.3.jar` (Ostinato
+branch `26.3`). Run `:26.3:build -Pwith26` with Gradle on JDK 21 and an installed
+Java 25 toolchain. If Gradle cannot locate it, set `JAVA_HOME_25` to its installation
+and add `-Porg.gradle.java.installations.fromEnv=JAVA_HOME_25`. The same toolchain
+is used by `:26.3:test` and `:26.3:runClient`.
+
 ### Other versions
 
 `1.21.1` down to `1.16.5` are preprocess-only nodes: TenorClef always runs on Ostinato and Ostinato has no build for them, so their compile, jar and test tasks are disabled. They keep upstream Baritone compile-only, only so the preprocessor can resolve types.
 
 ## Tungsten (optional)
 
-Travel backend only on 1.21 / 1.21.1 / 1.21.11. Place `tungsten*.jar` in `libs/` or build `vendor/tungsten`. **CI and local builds must succeed without Tungsten** (Baritone fallback). See `docs/TUNGSTEN_BACKEND.md`.
+Travel backend on 26.3, 1.21 / 1.21.1 / 1.21.11 and 1.16.1. Build the Java 25 port in `vendor/tungsten-26.3` for 26.3; its build/libs jar is discovered automatically. Place `tungsten*.jar` in `libs/` or build `vendor/tungsten`. **CI and local builds must succeed without Tungsten** (Baritone fallback). See `docs/TUNGSTEN_BACKEND.md`.
 
 ## Version directories (Gradle 9+)
 
@@ -117,9 +126,10 @@ Do not compile while a `runClient` / `@testrun` session is live on the same tree
 
 On push/PR to `main`, `.github/workflows/gradle.yml`:
 
-1. **1.21.4** (required) — JDK 21, committed `libs/baritone-unoptimized-fabric-1.21.4.jar`, `./gradlew :1.21.4:compileJava` then `:1.21.4:test`.
-2. **1.21.11** (experimental, `continue-on-error`) — JDK 21, checkout + `:fabric:build` of `vexrypt-rgb/Ostinato@1.21.11`, stage jars to `../Ostinato/dist` (and `libs/`), then `./gradlew :1.21.11:compileJava` **only if** staging succeeded. Does **not** block merge.
-3. **1.16.1** (required) — JDK 21 for TenorClef Gradle, uses committed `libs/baritone-unoptimized-fabric-1.16.1.jar`, `./gradlew :1.16.1:compileJava`.
+1. **26.3** (required) — JDK 21 for Gradle, JDK 25 toolchain, committed Ostinato 26.3 jar, full `:26.3:build -Pwith26` including unit tests.
+2. **1.21.4** (required) — JDK 21, committed `libs/baritone-unoptimized-fabric-1.21.4.jar`, `./gradlew :1.21.4:compileJava` then `:1.21.4:test`.
+3. **1.21.11** (experimental, `continue-on-error`) — JDK 21, checkout + `:fabric:build` of `vexrypt-rgb/Ostinato@1.21.11`, stage jars to `../Ostinato/dist` (and `libs/`), then `./gradlew :1.21.11:compileJava` **only if** staging succeeded. Does **not** block merge.
+4. **1.16.1** (required) — JDK 21 for TenorClef Gradle, uses committed `libs/baritone-unoptimized-fabric-1.16.1.jar`, `./gradlew :1.16.1:compileJava`.
 
 `Deploy Javadoc` (`.github/workflows/javadoc-publish.yml`) is also **non-blocking** (`continue-on-error`) — generation/deploy failures must not red `main`.
 

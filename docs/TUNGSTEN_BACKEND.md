@@ -89,3 +89,17 @@ Bridge fixes that came with it: a path request made while the previous search wa
 stopping used to be dropped silently (the bridge reported success); probing before Tungsten
 initialised cached "missing" for the whole session; `TungstenGotoTask` re-requested every tick,
 restarting the search each time (now every 1.5s at most).
+
+## Minecraft 26.3 port
+
+`vendor/tungsten-26.3` contains the source port of the pinned altoclef-compat
+revision, with official names, Java 25, SDL keyboard mappings and native Gizmos
+rendering. Build `build sourcesJar` with JDK 21 for Gradle and JDK 25 as toolchain
+(see the vendor README). Its `build/libs` runtime jar is automatically included
+in the 26.3 development classpath; it is installed separately for normal clients.
+Version filtering prevents the 26.3 jar from entering older Minecraft targets.
+
+Select `#set movementBackend tungsten`. Confirm `CustomGoal: Tungsten travel`
+and `Pathing complete (Tungsten)` in the game log for a completed travel route.
+A loaded mod alone does not confirm that movement used it. Ostinato reports
+`Tungsten idle before goal; falling back to Baritone` when a route needs fallback.

@@ -29,6 +29,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.Vec3i;
 
 import java.util.*;
@@ -128,6 +129,8 @@ public class ConstructNetherPortalBucketTask extends Task {
     private static long deepLakeFirstSeenMs = 0;
     private static final int MID_LAKE_Y = 25;
     private int secondBucketIronLast = -1;
+    private Vec3d secondBucketProgressPos;
+    private BlockPos secondBucketMiningPos;
     private Task secondBucketRelocate;
     /** Set when Construct gives up so EarlyOverworld can tear down goToNether and re-acquire. */
     public boolean abortedForReacquire = false;
@@ -146,6 +149,10 @@ public class ConstructNetherPortalBucketTask extends Task {
         refreshTimer.reset();
         bucketAcquireTiming = false;
         bucketAcquireTimer.reset();
+        secondBucketIronLast = -1;
+        secondBucketProgressPos = null;
+        secondBucketMiningPos = null;
+        secondBucketIronStallTimer.reset();
         noFluidProgressTimer.reset();
         abortedForReacquire = false;
 
@@ -283,14 +290,25 @@ public class ConstructNetherPortalBucketTask extends Task {
                 if (secondBucketRelocate != null && secondBucketRelocate.isActive() && !secondBucketRelocate.isFinished()) {
                     return secondBucketRelocate;
                 }
-                if (iron != secondBucketIronLast) {
+                // Finished ingots are only the last step: travel, mining ore and
+                // gathering furnace fuel must also keep this watchdog alive.
+                Vec3d here = mod.getPlayer().getPos();
+                boolean moved = secondBucketProgressPos == null
+                        || here.squaredDistanceTo(secondBucketProgressPos) >= 4;
+                boolean mined = secondBucketMiningPos != null && WorldHelper.isAir(secondBucketMiningPos);
+                if (iron != secondBucketIronLast || moved || mined) {
                     secondBucketIronLast = iron;
+                    secondBucketProgressPos = here;
+                    secondBucketMiningPos = null;
                     secondBucketIronStallTimer.reset();
                 } else if (secondBucketIronStallTimer.elapsed()) {
                     secondBucketIronStallTimer.reset();
-                    Debug.logWarning("[S208] 2nd-bucket iron stalled 25s at iron=" + iron + " - relocating");
+                    Debug.logWarning("[S208] No movement, mining or iron progress for 25s at iron=" + iron + " - relocating");
                     secondBucketRelocate = new TimeoutWanderTask(12);
                     return secondBucketRelocate;
+                }
+                if (mod.getControllerExtras().isBreakingBlock()) {
+                    secondBucketMiningPos = mod.getControllerExtras().getBreakingBlockPos();
                 }
                 progressChecker.reset();
                 if (secondBucketIronLogTimer.elapsed()) {

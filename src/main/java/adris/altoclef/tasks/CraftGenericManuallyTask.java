@@ -4,6 +4,7 @@ import adris.altoclef.AltoClef;
 import adris.altoclef.tasks.slot.MoveItemToSlotFromInventoryTask;
 import adris.altoclef.tasks.slot.ReceiveCraftingOutputSlotTask;
 import adris.altoclef.tasksystem.Task;
+import adris.altoclef.tasksystem.ITaskUsesCraftingGrid;
 import adris.altoclef.util.ItemTarget;
 import adris.altoclef.util.RecipeTarget;
 import adris.altoclef.util.helpers.ItemHelper;
@@ -22,7 +23,7 @@ import java.util.Optional;
  * <p>
  * Not useful for custom tasks.
  */
-public class CraftGenericManuallyTask extends Task {
+public class CraftGenericManuallyTask extends Task implements ITaskUsesCraftingGrid {
 
     private final RecipeTarget target;
 
