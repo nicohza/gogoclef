@@ -74,14 +74,14 @@ The regular jar leaves experimental kinematic travel off on 26.3;
 
 ### Kinematic release (26.3)
 
-The separate **`altoclef-26.3-0.22.2-kinematic.jar`** enables experimental kinematic
+The separate **`altoclef-26.3-0.22.2-kinematic.2.jar`** enables experimental kinematic
 travel and selects the Baritone movement backend automatically at startup. No
 launcher flag or manual settings file is needed. Install it **instead of** the
 regular AltoClef/TenorClef jar; both have the same mod ID.
 
-Use the `mods/` contents of `tenorclef-mc26.3-0.22.2-kinematic.zip`:
+Use the `mods/` contents of `tenorclef-mc26.3-0.22.2-kinematic.2.zip`:
 
-- `altoclef-26.3-0.22.2-kinematic.jar`
+- `altoclef-26.3-0.22.2-kinematic.2.jar`
 - `baritone-unoptimized-fabric-ostinato-26.3.jar`
 - `fabric-api-0.161.0+26.3.jar`
 
@@ -91,7 +91,10 @@ preset. An explicit `-Dtenorclef.kinematic=false` still disables kinematic trave
 In-game changes remain possible with `#set movementBackend baritone` and
 `#set kinematicTravel true`; the release preset is reapplied on each launch.
 
-Start a task with `@get blaze_rod 3`; stop it with `@stop`.
+Start a task with `@get ender_pearl 3`; stop it with `@stop`.
+The .2 update includes Nether-trip persistence and drowning recovery, including
+routing around underwater ceilings. A fresh pearl trial completed 3/3 with zero
+deaths; covered-water and open-water recovery checks passed.
 The 4 October 2026 test of the underlying controller was stopped by the user after
 11m 28s at 0/3 rods while approaching a discovered blaze spawner. Execution of the
 kinematic controller was observed, but three-rod completion is **not validated**.

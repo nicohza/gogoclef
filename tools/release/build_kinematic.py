@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Package an installable kinematic variant from the exact recovered 26.3 checkpoint."""
+"""Package an installable kinematic variant from a checksum-verified 26.3 build."""
 import argparse
 import hashlib
 import json
@@ -13,7 +13,6 @@ import zipfile
 BASE_SHA256 = 'c9ad3657776510f2d5b02131b96ccb3b189fb6ec03f28604b2abbb9726de02a7'
 OSTINATO_SHA256 = 'fd4059becbf8a93bf39b78108b2a795d5b8cf33a01f73a1a964d1318ec7c0d52'
 ENTRYPOINT = 'adris.altoclef.release.KinematicRelease'
-NAME = 'altoclef-26.3-0.22.2-kinematic.jar'
 
 def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
@@ -24,10 +23,16 @@ def main():
     parser.add_argument('--ostinato', type=Path, required=True)
     parser.add_argument('--fabric-loader', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--base-sha256', default=BASE_SHA256,
+                        help='Expected SHA256 of the validated base build (default: original checkpoint)')
+    parser.add_argument('--version', default='26.3-0.22.2-kinematic',
+                        help='Fabric mod version and jar filename suffix')
     parser.add_argument('--javac', default='javac', help='JDK 25 javac executable')
     args = parser.parse_args()
-    if digest(args.base) != BASE_SHA256 or digest(args.ostinato) != OSTINATO_SHA256:
-        parser.error('Expected the original 26.3 checkpoint TenorClef and Ostinato jars; checksum mismatch')
+    if not args.version or any(c not in 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.-_' for c in args.version):
+        parser.error('Version must contain only letters, digits, dots, hyphens, or underscores')
+    if digest(args.base) != args.base_sha256 or digest(args.ostinato) != OSTINATO_SHA256:
+        parser.error('Expected the checksum-verified TenorClef and Ostinato jars; checksum mismatch')
     args.output.mkdir(parents=True, exist_ok=True)
     source = Path(__file__).parent / 'kinematic/KinematicRelease.java'
     with tempfile.TemporaryDirectory(prefix='tenorclef-kinematic-') as temp:
@@ -41,7 +46,7 @@ def main():
         metadata = json.loads(entries['fabric.mod.json'])
         assert metadata['id'] == 'altoclef'
         assert metadata['entrypoints']['main'] == ['adris.altoclef.AltoClef']
-        metadata['version'] = '26.3-0.22.2-kinematic'
+        metadata['version'] = args.version
         metadata['name'] = 'TenorClef (Kinematic Experimental)'
         metadata['description'] = 'TenorClef 26.3 with experimental kinematic travel enabled at startup.'
         metadata['contact']['homepage'] = 'https://github.com/nicohza/gogoclef'
@@ -51,8 +56,8 @@ def main():
         for path in classes.rglob('*.class'):
             entries[path.relative_to(classes).as_posix()] = path.read_bytes()
         entries['META-INF/tenorclef-kinematic-source.java'] = source.read_bytes()
-        entries['META-INF/tenorclef-kinematic-base.sha256'] = (BASE_SHA256 + '\n').encode()
-        target = args.output / NAME
+        entries['META-INF/tenorclef-kinematic-base.sha256'] = (args.base_sha256 + '\n').encode()
+        target = args.output / f'altoclef-{args.version}.jar'
         with zipfile.ZipFile(target, 'w', compression=zipfile.ZIP_DEFLATED, compresslevel=9) as jar:
             for name, data in sorted(entries.items()):
                 info = zipfile.ZipInfo(name, (2026, 10, 4, 0, 0, 0))
